@@ -24,8 +24,8 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#testimonials" className="hover:text-[#22c55e] transition">
-              Marketing Headaches
+            <Link href="#why-us" className="hover:text-[#22c55e] transition">
+              Why-us
             </Link>
 
             <Link href="#growth" className="hover:text-[#22c55e] transition">
@@ -71,8 +71,8 @@ export default function Navbar() {
         <div className="bg-white dark:bg-zinc-950 border-t">
           <div className="flex flex-col p-6 space-y-5">
 
-            <Link href="#testimonials" onClick={() => setMobileMenu(false)}>
-              Marketing Headaches
+            <Link href="#why-us" onClick={() => setMobileMenu(false)}>
+              Why-us
             </Link>
 
             <Link href="#growth" onClick={() => setMobileMenu(false)}>

@@ -54,7 +54,7 @@ export default function MarketingHeadaches() {
 
           <h2 className="text-4xl md:text-5xl font-bold text-white">
             Marketing Headaches vs
-            <span className="text-green-500"> PANDAeCe's Cure</span>
+            <span className="text-green-500"> PANDAeCe s Cure</span>
           </h2>
         </div>
 
@@ -80,7 +80,7 @@ export default function MarketingHeadaches() {
 
               <div className="bg-zinc-900 border border-green-500/20 rounded-3xl p-6">
                 <h3 className="text-green-500 font-bold text-lg mb-4">
-                  PANDAeCe's Cure
+                  PANDAeCe s Cure
                 </h3>
 
                 <p className="text-zinc-300 leading-relaxed">
@@ -96,7 +96,7 @@ export default function MarketingHeadaches() {
             onClick={() => setIsPopupOpen(true)}
             className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold transition-all"
           >
-            Book a Growth Strategy Call
+           Boost Your Business Growth
           </button>
         </div>
       </div>

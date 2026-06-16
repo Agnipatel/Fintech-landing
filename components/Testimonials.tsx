@@ -70,7 +70,7 @@ export default function MarketingHeadaches() {
             >
               <div className="bg-zinc-900 border border-red-500/20 rounded-3xl p-6">
                 <h3 className="text-red-500 font-bold text-lg mb-4">
-                  Marketing Headache
+                Your Challenge
                 </h3>
 
                 <p className="text-zinc-300 leading-relaxed">
@@ -80,7 +80,7 @@ export default function MarketingHeadaches() {
 
               <div className="bg-zinc-900 border border-green-500/20 rounded-3xl p-6">
                 <h3 className="text-green-500 font-bold text-lg mb-4">
-                  PANDAeCe s Cure
+                 Our Solution
                 </h3>
 
                 <p className="text-zinc-300 leading-relaxed">

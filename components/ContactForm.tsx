@@ -182,7 +182,7 @@ export default function ContactPage() {
                         <SelectValue placeholder="Select Budget" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="40k">40k</SelectItem>
+                        <SelectItem value="40k-50k">40k-50k</SelectItem>
                         <SelectItem value="50k-80k">50k-80k</SelectItem>
                         <SelectItem value="80k - 1 lakh">80k - 1 lakh</SelectItem>
                         <SelectItem value="5 lakh+">5 lakh+</SelectItem>

@@ -29,7 +29,7 @@ export default function Navbar() {
             </Link>
 
             <Link href="#growth" className="hover:text-[#22c55e] transition">
-              Growth
+              Pandaece Growth
             </Link>
 
             <Link href="#services" className="hover:text-[#22c55e] transition">
@@ -76,7 +76,7 @@ export default function Navbar() {
             </Link>
 
             <Link href="#growth" onClick={() => setMobileMenu(false)}>
-              Growth
+              Pandaece Growth
             </Link>
 
             <Link href="#services" onClick={() => setMobileMenu(false)}>

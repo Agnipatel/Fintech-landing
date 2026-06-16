@@ -69,7 +69,7 @@ export default function Services() {
             onClick={() => setIsPopupOpen(true)}
             className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-medium transition-colors text-lg"
           >
-            Get Free Marketing Audit
+            Get A Free Marketing Audit
           </button>
         </div>
       </div>

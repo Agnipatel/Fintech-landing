@@ -92,7 +92,7 @@ export default function ContactModal() {
           >
             <div className="flex items-center justify-between p-6 border-b border-zinc-800">
               <h2 className="text-xl sm:text-2xl font-bold text-white">
-                Get Your <span className="text-green-500">Free Audit</span>
+                Get Your <span className="text-green-500">Free Marketing </span>
               </h2>
               <button
                 onClick={() => setIsPopupOpen(false)}
@@ -184,7 +184,7 @@ export default function ContactModal() {
                         <SelectValue placeholder="Select Budget" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="40k">40k</SelectItem>
+                        <SelectItem value="40k-50k">40k-50k</SelectItem>
                         <SelectItem value="50k-80k">50k-80k</SelectItem>
                         <SelectItem value="80k - 1 lakh">80k - 1 lakh</SelectItem>
                         <SelectItem value="5 lakh+">5 lakh+</SelectItem>
@@ -217,7 +217,7 @@ export default function ContactModal() {
                           Submitting...
                         </>
                       ) : (
-                        "Get Your Free Audit"
+                        "Get Your Free Marketing "
                       )}
                     </button>
                   </div>

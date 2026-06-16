@@ -10,6 +10,7 @@ import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatApp";
+import Marking from "@/components/Marking";
 
 export default function Home() {
   return (
@@ -24,6 +25,8 @@ export default function Home() {
 
       {/* Performance Stats */}
       <PerformanceStarts />
+       <Marking />
+      
 
       {/* Marketing Headaches */}
       <section id="testimonials">

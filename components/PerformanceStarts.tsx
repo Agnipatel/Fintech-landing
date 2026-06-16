@@ -89,7 +89,7 @@ export default function PerformanceStarts() {
             onClick={() => setIsPopupOpen(true)}
             className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-medium text-lg transition-colors duration-300"
           >
-            Get Free Consultation
+            Get a Free Consultation
           </button>
         </div>
       </div>

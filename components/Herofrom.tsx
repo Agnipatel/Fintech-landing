@@ -241,7 +241,7 @@ export default function HeroForm() {
               >
                 {isSubmitting
                   ? "Submitting..."
-                  : "Get Your Free Audit"}
+                  : "Request for Free Marketing Audit"}
               </button>
             </form>
           </div>

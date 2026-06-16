@@ -31,7 +31,7 @@ export default function WhyPanda() {
 
             <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400">
               <p>
-                Today's customers discover, compare, and purchase products online.
+                Todays customers discover, compare, and purchase products online.
               </p>
 
               <p>
@@ -56,7 +56,7 @@ export default function WhyPanda() {
               onClick={() => setIsPopupOpen(true)}
               className="mt-8 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold transition-all"
             >
-              Let's Discuss Your Growth Goals
+              Lets Discuss Your Growth Goals
             </button>
           </div>
 

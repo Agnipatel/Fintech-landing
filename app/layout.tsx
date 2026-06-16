@@ -20,13 +20,7 @@ export const metadata: Metadata = {
   title: "PANDAeCe | Performance Marketing",
   description: "Performance marketing agency for growing businesses.",
   icons: {
-    icon: [
-      {
-        url: "/panda.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-    ],
+    icon: "/panda.png",
     shortcut: "/panda.png",
     apple: "/panda.png",
   },

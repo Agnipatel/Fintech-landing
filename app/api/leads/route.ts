@@ -1,10 +1,13 @@
+
+
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb";
 import Lead from "@/lib/models/Lead";
 import nodemailer from "nodemailer";
+import { createGHLContact } from "@/lib/ghl";
 
 // GET ALL LEADS
-export async function GET() {
+export async function GET() { 
   try {
     await connectDB();
 
@@ -43,9 +46,10 @@ export async function POST(req: Request) {
       message,
     } = body;
 
-    if (!name || !email || !phone || !service || !budget) {
+    if (!name || !email || !phone) {
       return NextResponse.json(
         {
+          success: false,
           error: "Missing required fields",
         },
         { status: 400 }
@@ -54,15 +58,35 @@ export async function POST(req: Request) {
 
     await connectDB();
 
+    // Save Lead in MongoDB
     const newLead = await Lead.create({
       name,
       email,
       phone,
       service,
-      budget,
-      message,
+      budget: budget || "",
+      message: message || "",
     });
 
+    console.log("MongoDB Lead Saved:", newLead);
+
+    // Send to GoHighLevel CRM
+    try {
+      const ghlResponse = await createGHLContact({
+        name,
+        email,
+        phone,
+        propertyType: service,
+        budget,
+        message,
+      });
+
+      console.log("GHL Response:", ghlResponse);
+    } catch (ghlError) {
+      console.error("GHL CRM Error:", ghlError);
+    }
+
+    // Send Email Notification
     if (
       process.env.EMAIL_USER &&
       process.env.EMAIL_PASS
@@ -92,7 +116,7 @@ Message: ${message || "N/A"}
           `,
         });
       } catch (emailError) {
-        console.error(emailError);
+        console.error("Email Error:", emailError);
       }
     }
 

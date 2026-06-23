@@ -10,7 +10,7 @@ export default function WhyPanda() {
     { title: "Revenue Growth", icon: "📈" },
     { title: "Lower Cost Per Lead (CPL)", icon: "📉" },
     { title: "Higher Return on Ad Spend (ROAS)", icon: "💰" },
-    { title: "Better Conversion Rates", icon: "⚡" },
+    { title: "Betters Conversion Rates", icon: "⚡" },
     { title: "Customer Acquisition Growth", icon: "🚀" },
   ];
 

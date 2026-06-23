@@ -1,4 +1,4 @@
-export async function createGHLContact(data: {
+export async function createGHLContacts(data: {
   name: string;
   email: string;
   phone: string;

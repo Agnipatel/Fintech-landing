@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb";
 import Lead from "@/lib/models/Lead";
 import nodemailer from "nodemailer";
-import { createGHLContact } from "@/lib/ghl";
+import { createGHLContacts } from "@/lib/ghl";
 
 // GET ALL LEADS
 export async function GET() { 
@@ -72,7 +72,7 @@ export async function POST(req: Request) {
 
     // Send to GoHighLevel CRM
     try {
-      const ghlResponse = await createGHLContact({
+      const ghlResponse = await createGHLContacts({
         name,
         email,
         phone,

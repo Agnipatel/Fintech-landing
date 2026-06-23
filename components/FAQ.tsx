@@ -10,7 +10,7 @@ export default function FAQ() {
 
   const faqs = [
     {
-      q: "What is a performance marketing agency?",
+      q: "What is a performances marketing agency?",
       a: "A performance marketing agency helps businesses generate measurable results such as leads, sales, and revenue through digital advertising and data-driven marketing strategies.",
     },
     {

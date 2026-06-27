@@ -2,330 +2,234 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { MultiSelect } from "@/components/ui/multi-select";
 
-import {
-  MapPin,
-  Loader2,
-  ArrowRight,
-  CheckCircle2,
-  ExternalLink,
-} from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa6";
-
-
-const WHATSAPP_NUMBER = "918217794751";
-const WHATSAPP_MSG = encodeURIComponent(
-  "Hi PANDAeCe! I'm interested in your real estate marketing services. Please share more details."
-);
-const GOOGLE_MAPS_URL =
-  "https://maps.google.com/?q=4th+Floor,+292,+7th+Main+Rd,+Vyalikaval+HBCS+Layout,+Nagavara,+Bengaluru,+Karnataka+560045";
-
-const SERVICE_OPTIONS = [
-  { label: "Lead Generation Campaigns", value: "Lead Generation Campaigns" },
-  { label: "Meta Ads Management", value: "Meta Ads Management" },
-  { label: "Google Ads Management", value: "Google Ads Management" },
-  { label: "SEO Management", value: "SEO Management" },
-  { label: "Landing Page Optimization", value: "Landing Page Optimization" },
-  { label: "WhatsApp & CRM Automation", value: "WhatsApp & CRM Automation" },
-  { label: "Social Media Marketing", value: "Social Media Marketing" },
-  { label: "Website Design & Development", value: "Website Design & Development" },
-];
-
-export default function ContactPage() {
+export default function IVFAuditSection() {
   const router = useRouter();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const [loading, setLoading] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    location: "",
+    website: "",
+    source: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setErrorMsg("");
-
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      service: formData.get("service"),
-      budget: formData.get("budget"),
-      message: formData.get("message"),
-    };
 
     try {
-      const res = await fetch("/api/leads", {
+      setLoading(true);
+
+      const response = await fetch("/api/leads", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || "Failed to submit form.");
-      }
+      const data = await response.json();
 
-      router.push("/thank-you");
-    } catch (error: any) {
-      setErrorMsg(error.message || "Something went wrong. Please try again.");
-      setIsSubmitting(false);
+      if (data.success) {
+        router.push("/thank-you");
+      } else {
+        alert(data.error || "Something went wrong");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to submit form");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const inputClass =
-    "w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/30 transition-all";
+  const benefits = [
+    "Local SEO Health Check",
+    "Lead Generation Analysis",
+    "Landing Page Conversion Review",
+    "Competitor Visibility Insights",
+    "Advertising Performance Audit",
+    "90-Day Growth Roadmap",
+  ];
 
   return (
-    <section id="contact" className="bg-slate-950 text-slate-50">
-      {/* ══════════════════ FORM + INFO ══════════════════ */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-14 items-start">
+    <section className="relative overflow-hidden bg-black py-12 sm:py-16 lg:py-24">
+      {/* Background Blur Effects */}
+      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-green-500/10 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-green-500/10 blur-3xl"></div>
 
-            {/* ── Left/Top: form ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl order-1"
-            >
-              {/* Badge */}
-              <div className="absolute -top-4 left-4 md:-left-4 bg-green-600 text-white text-xs font-bold px-4 py-1.5 rounded-full animate-pulse shadow-lg">
-                Free Consultation
-              </div>
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-12">
 
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
-                Real Estate Marketing Pandaece
-              </h3>
-              <p className="text-gray-400 text-xs sm:text-sm mb-7">
-                Fill out the form — our experts will reach out within 24 hours.
-              </p>
+        {/* Heading */}
+        <div className="mx-auto max-w-5xl text-center">
+          <span className="inline-flex rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-green-400 sm:text-sm">
+            ● Free IVF Marketing Audit
+          </span>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {errorMsg && (
-                  <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-500 text-sm">
-                    {errorMsg}
-                  </div>
-                )}
+          <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
+            Find Out Why IVF Patients Choose Other
+            <span className="block text-green-500">
+              Bangalore Clinics
+            </span>
+          </h2>
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-zinc-300">
-                      Full Name *
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      className={inputClass}
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-zinc-300">
-                      Email Address *
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      className={inputClass}
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="phone" className="text-sm font-medium text-zinc-300">
-                    Phone Number *
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    required
-                    className={inputClass}
-                    placeholder="+1 (555) 000-0000"
-                  />
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="service" className="text-sm font-medium text-zinc-300">
-                      Service Interested In *
-                    </label>
-                    <MultiSelect
-                      name="service"
-                      required
-                      placeholder="Select Services"
-                      options={SERVICE_OPTIONS}
-                      className="bg-zinc-900 border-zinc-800 text-white"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="budget" className="text-sm font-medium text-zinc-300">
-                      Marketing Budget *
-                    </label>
-                    <Select name="budget" required>
-                      <SelectTrigger className={inputClass}>
-                        <SelectValue placeholder="Select Budget" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="40k-50k">40k-50k</SelectItem>
-                        <SelectItem value="50k-80k">50k-80k</SelectItem>
-                        <SelectItem value="80k - 1 lakh">80k - 1 lakh</SelectItem>
-                        <SelectItem value="5 lakh+">5 lakh+</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-zinc-300">
-                    Additional Message (Optional)
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={3}
-                    className={`${inputClass} resize-none`}
-                    placeholder="Tell us a bit about your goals..."
-                  />
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 sm:py-4 rounded-xl transition-all flex items-center justify-center gap-2 group shadow-lg shadow-green-900/20 disabled:opacity-70 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        Submitting...
-                      </>
-                    ) : (
-                      <>
-                        Request for Free Marketing Audit
-                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                      </>
-                    )}
-                  </button>
-                  <p className="text-center text-gray-500 text-xs mt-3">
-                    🔒 Your information is 100% confidential. No spam, ever.
-                  </p>
-                </div>
-              </form>
-            </motion.div>
-
-            {/* ── Right/Bottom: info panel ── */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="order-2"
-            >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-                Ready to Scale{" "}
-                <span className="text-green-500">Your Business?</span>
-              </h2>
-              <p className="text-base sm:text-lg text-gray-400 mb-8 leading-relaxed">
-                Whether you&apos;re launching a residential project, promoting luxury
-                apartments, or scaling commercial campaigns — PANDAeCe builds
-                data-driven strategies that deliver measurable results.
-              </p>
-
-              {/* Bullet points */}
-              <div className="space-y-4 mb-10">
-                {[
-                  "Dedicated real estate marketing team",
-                  "AI-powered audience targeting",
-                  "Full-funnel campaign management",
-                  "Real-time analytics & reporting",
-                  "Guaranteed lead quality SLA",
-                ].map((point, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm sm:text-base text-gray-300">
-                    <CheckCircle2 size={17} className="text-green-500 flex-shrink-0" />
-                    {point}
-                  </div>
-                ))}
-              </div>
-
-              {/* Office Address — clickable Google Maps */}
-              <a
-                href={GOOGLE_MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                id="office-address-map-link"
-                className="group flex items-start gap-4 bg-slate-900 border border-slate-800 hover:border-green-500/40 rounded-2xl p-5 transition-all"
-              >
-                <div className="bg-green-500/10 text-green-400 p-3 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <MapPin size={20} />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-1.5 mb-1">
-                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-widest">
-                      Office Address
-                    </p>
-                    <ExternalLink
-                      size={11}
-                      className="text-gray-600 group-hover:text-green-400 transition-colors"
-                    />
-                  </div>
-                  <p className="text-white font-semibold leading-relaxed text-sm">
-                    4th Floor, 292, 7th Main Rd,
-                    <br />
-                    Vyalikaval HBCS Layout, Nagavara,
-                    <br />
-                    Bengaluru, Karnataka 560045
-                  </p>
-                  <p className="text-green-400 text-xs font-medium mt-2 group-hover:text-green-300 transition-colors flex items-center gap-1">
-                    Open in Google Maps
-                    <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
-                  </p>
-                </div>
-              </a>
-
-              {/* WhatsApp quick message */}
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                id="whatsapp-quick-msg"
-                className="group mt-4 flex items-center gap-4 bg-[#25D366]/8 border border-[#25D366]/25 hover:border-[#25D366]/50 rounded-2xl p-5 transition-all"
-              >
-                <div className="bg-[#25D366]/15 text-[#25D366] p-3 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <FaWhatsapp size={22} />
-                </div>
-                <div>
-                  <p className="text-white font-semibold text-sm">
-                    Prefer WhatsApp?
-                  </p>
-                  <p className="text-gray-500 text-xs mt-0.5">
-                    Tap to open a chat with a pre-filled message — we reply fast!
-                  </p>
-                  <p className="text-[#25D366] text-xs font-medium mt-2 flex items-center gap-1">
-                    Start WhatsApp chat
-                    <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
-                  </p>
-                </div>
-              </a>
-            </motion.div>
-          </div>
+          <p className="mx-auto mt-6 max-w-4xl text-base leading-7 text-gray-300 sm:text-lg sm:leading-8">
+            Our fertility marketing experts will identify gaps in your digital
+            strategy and provide actionable recommendations to increase
+            consultation bookings, patient inquiries, and clinic growth.
+          </p>
         </div>
-      </section>
+
+        {/* Main Card */}
+        <div className="mx-auto mt-12 max-w-5xl rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-sm sm:p-8 lg:mt-16 lg:p-12">
+
+          {/* Benefits */}
+          <div className="mb-10">
+            <h3 className="mb-8 text-center text-2xl font-bold text-white lg:text-3xl">
+              What You ll Receive
+            </h3>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {benefits.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 rounded-xl border border-white/5 bg-black/20 p-3"
+                >
+                  <span className="text-lg font-bold text-green-500">
+                    ✔
+                  </span>
+
+                  <span className="text-gray-300">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-5">
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <input
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                type="text"
+                required
+                placeholder="Enter your full name"
+                className="h-14 w-full rounded-xl border border-white/10 bg-black/40 px-5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-green-500"
+              />
+
+              <input
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                type="tel"
+                required
+                placeholder="+91 XXXXX XXXXX"
+                className="h-14 w-full rounded-xl border border-white/10 bg-black/40 px-5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-green-500"
+              />
+            </div>
+
+            <input
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              type="email"
+              required
+              placeholder="yourname@clinic.com"
+              className="h-14 w-full rounded-xl border border-white/10 bg-black/40 px-5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-green-500"
+            />
+
+            <input
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              type="text"
+              placeholder="Clinic Location"
+              className="h-14 w-full rounded-xl border border-white/10 bg-black/40 px-5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-green-500"
+            />
+
+            <input
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              type="url"
+              placeholder="https://yourclinic.com"
+              className="h-14 w-full rounded-xl border border-white/10 bg-black/40 px-5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-green-500"
+            />
+
+            <input
+              name="source"
+              value={formData.source}
+              onChange={handleChange}
+              type="text"
+              placeholder="How Did You Hear About Us?"
+              className="h-14 w-full rounded-xl border border-white/10 bg-black/40 px-5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-green-500"
+            />
+
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              rows={6}
+              placeholder="Tell us about your clinic goals, challenges, and growth plans..."
+              className="w-full rounded-xl border border-white/10 bg-black/40 px-5 py-4 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-green-500"
+            />
+
+            {/* Recaptcha Mock UI */}
+            <div className="flex justify-center">
+              <div className="flex flex-wrap items-center gap-3 rounded-xl border border-white/10 bg-black/40 px-6 py-4">
+                <input
+                  type="checkbox"
+                  className="h-5 w-5"
+                />
+
+                <span className="text-sm text-gray-300">
+                  I'm not a robot
+                </span>
+
+                <span className="text-xs text-gray-500">
+                  reCAPTCHA
+                </span>
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full rounded-xl bg-green-600 py-4 text-lg font-bold text-white transition-all duration-300 hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-70"
+            >
+              {loading
+                ? "Submitting..."
+                : "Get Your Clinic Audit"}
+            </button>
+
+            <p className="text-center text-sm text-gray-400">
+              No spam. Ever. We'll analyze your clinic and contact you within
+              24 hours.
+            </p>
+
+          </form>
+        </div>
+      </div>
     </section>
   );
 }

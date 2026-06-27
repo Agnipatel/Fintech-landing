@@ -2,27 +2,23 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Loader2, CheckCircle } from "lucide-react";
-import { usePopup } from "./PopupProvider";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { MultiSelect } from "@/components/ui/multi-select";
+  X,
+  Loader2,
+  CheckCircle,
+} from "lucide-react";
+import { usePopup } from "./PopupProvider";
 import { useRouter } from "next/navigation";
 
 const SERVICE_OPTIONS = [
-  { label: "Lead Generation Campaigns", value: "Lead Generation Campaigns" },
-  { label: "Meta Ads Management", value: "Meta Ads Management" },
-  { label: "Google Ads Management", value: "Google Ads Management" },
-  { label: "SEO Management", value: "SEO Management" },
-  { label: "Landing Page Optimization", value: "Landing Page Optimization" },
-  { label: "WhatsApp & CRM Automation", value: "WhatsApp & CRM Automation" },
-  { label: "Social Media Marketing", value: "Social Media Marketing" },
-  { label: "Website Design & Development", value: "Website Design & Development" },
+  "Lead Generation Campaigns",
+  "Meta Ads Management",
+  "Google Ads Management",
+  "SEO Management",
+  "Landing Page Optimization",
+  "WhatsApp & CRM Automation",
+  "Social Media Marketing",
+  "Website Design & Development",
 ];
 
 export default function ContactModal() {
@@ -33,17 +29,27 @@ export default function ContactModal() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const inputClass =
+    "w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500";
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
+
     setIsSubmitting(true);
     setErrorMsg("");
 
     const formData = new FormData(e.currentTarget);
+
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
-      service: formData.get("service"),
+      location: formData.get("location"),
+      website: formData.get("website"),
+      source: formData.get("source"),
+      services: formData.getAll("service"),
       budget: formData.get("budget"),
       message: formData.get("message"),
     };
@@ -51,31 +57,45 @@ export default function ContactModal() {
     try {
       const res = await fetch("/api/leads", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(data),
       });
 
       if (!res.ok) {
-        throw new Error("Failed to submit form.");
+        throw new Error("Failed");
       }
 
       setIsSuccess(true);
+
       setTimeout(() => {
         setIsPopupOpen(false);
         setIsSuccess(false);
         router.push("/thank-you");
       }, 2000);
     } catch (error) {
+      console.error(error);
       setErrorMsg("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const benefits = [
+    "Local SEO Health Check",
+    "Landing Page Conversion Review",
+    "Advertising Performance Audit",
+    "Lead Generation Analysis",
+    "Competitor Visibility Insights",
+    "90-Day Growth Roadmap",
+  ];
+
   return (
     <AnimatePresence>
       {isPopupOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+        <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
+          {/* Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -84,144 +104,227 @@ export default function ContactModal() {
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           />
 
+          {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-lg bg-zinc-950 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col"
+            initial={{
+              opacity: 0,
+              scale: 0.9,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.9,
+              y: 20,
+            }}
+            transition={{
+              duration: 0.25,
+            }}
+            className="relative z-10 w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl max-h-[95vh] overflow-y-auto"
           >
-            <div className="flex items-center justify-between p-6 border-b border-zinc-800">
-              <h2 className="text-xl sm:text-2xl font-bold text-white">
-                Get Your <span className="text-green-500">Free Marketing </span>
-              </h2>
-              <button
-                onClick={() => setIsPopupOpen(false)}
-                className="text-zinc-400 hover:text-white transition-colors p-1 rounded-full hover:bg-zinc-800"
-              >
-                <X size={24} />
-              </button>
-            </div>
+            {/* Close */}
+            <button
+              onClick={() => setIsPopupOpen(false)}
+              className="absolute right-5 top-5 rounded-full p-2 text-slate-500 hover:bg-slate-100"
+            >
+              <X size={20} />
+            </button>
 
-            <div className="p-6 overflow-y-auto custom-scrollbar">
+            <div className="p-6 md:p-10">
               {isSuccess ? (
-                <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
-                  <h3 className="text-2xl font-bold text-white mb-2">Success!</h3>
-                  <p className="text-zinc-400">
-                    We have received your details. Redirecting you...
+                <div className="flex flex-col items-center justify-center py-16 text-center">
+                  <CheckCircle className="h-16 w-16 text-green-500" />
+
+                  <h3 className="mt-4 text-3xl font-bold text-slate-900">
+                    Success!
+                  </h3>
+
+                  <p className="mt-2 text-slate-600">
+                    Your request has been submitted successfully.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <>
+                  {/* Heading */}
+                  <div className="mb-8 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+                      Get Your Free Marketing Audit
+                    </h2>
+
+                    <p className="mt-3 text-slate-600">
+                      Discover growth opportunities and improve your lead
+                      generation strategy.
+                    </p>
+                  </div>
+
+                  {/* Benefits */}
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mb-8">
+                    {benefits.map((item) => (
+                      <div
+                        key={item}
+                        className="flex items-center gap-2"
+                      >
+                        <CheckCircle className="h-4 w-4 text-violet-600" />
+
+                        <span className="text-sm text-slate-700">
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Error */}
                   {errorMsg && (
-                    <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-500 text-sm">
+                    <div className="mb-5 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-green-600">
                       {errorMsg}
                     </div>
                   )}
 
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-zinc-300">
-                      Full Name *
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all"
-                      placeholder="John Doe"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-zinc-300">
-                        Email Address *
-                      </label>
+                  {/* Form */}
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4"
+                  >
+                    {/* Name + Phone */}
+                    <div className="grid gap-4 md:grid-cols-2">
                       <input
-                        id="email"
-                        name="email"
-                        type="email"
+                        name="name"
                         required
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all"
-                        placeholder="john@example.com"
+                        placeholder="Enter your full name"
+                        className={inputClass}
                       />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="phone" className="text-sm font-medium text-zinc-300">
-                        Phone Number *
-                      </label>
+
                       <input
-                        id="phone"
                         name="phone"
-                        type="tel"
                         required
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all"
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="+91 XXXXX XXXXX"
+                        className={inputClass}
                       />
                     </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="service" className="text-sm font-medium text-zinc-300">
-                      Service Interested In *
-                    </label>
-                    <MultiSelect
-                      name="service"
+                    {/* Email */}
+                    <input
+                      type="email"
+                      name="email"
                       required
-                      placeholder="Select Services"
-                      options={SERVICE_OPTIONS}
-                      className="bg-zinc-900 border-zinc-800 text-white"
+                      placeholder="yourname@clinic.com"
+                      className={inputClass}
                     />
-                  </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="budget" className="text-sm font-medium text-zinc-300">
-                      Marketing Budget *
-                    </label>
-                    <Select name="budget" required>
-                      <SelectTrigger className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all">
-                        <SelectValue placeholder="Select Budget" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="40k-50k">40k-50k</SelectItem>
-                        <SelectItem value="50k-80k">50k-80k</SelectItem>
-                        <SelectItem value="80k - 1 lakh">80k - 1 lakh</SelectItem>
-                        <SelectItem value="5 lakh+">5 lakh+</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                    {/* Location */}
+                    <input
+                      name="location"
+                      placeholder="Location"
+                      className={inputClass}
+                    />
 
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-zinc-300">
-                      Additional Message (Optional)
-                    </label>
+                    {/* Website */}
+                    <input
+                      name="website"
+                      placeholder="https://yourclinic.com"
+                      className={inputClass}
+                    />
+
+                    {/* Source */}
+                    <input
+                      name="source"
+                      placeholder="How Did You Hear About Us? (Google Search, Meta Ads, LinkedIn, Referral)"
+                      className={inputClass}
+                    />
+
+                    {/* Services */}
+                    <div>
+                      <label className="mb-2 block text-sm font-medium text-slate-700">
+                        Services Interested In
+                      </label>
+
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {SERVICE_OPTIONS.map((service) => (
+                          <label
+                            key={service}
+                            className="flex items-center gap-2 rounded-lg border border-slate-200 p-3 cursor-pointer hover:bg-slate-50"
+                          >
+                            <input
+                              type="checkbox"
+                              name="service"
+                              value={service}
+                              className="h-4 w-4"
+                            />
+
+                            <span className="text-sm text-slate-700">
+                              {service}
+                            </span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Budget */}
+                    <select
+                      name="budget"
+                      className={inputClass}
+                      required
+                    >
+                      <option value="">
+                        Select Marketing Budget
+                      </option>
+
+                      <option value="40k-50k">
+                        ₹40k - ₹50k
+                      </option>
+
+                      <option value="50k-80k">
+                        ₹50k - ₹80k
+                      </option>
+
+                      <option value="80k-1L">
+                        ₹80k - ₹1 Lakh
+                      </option>
+
+                      <option value="1L-5L">
+                        ₹1 Lakh - ₹5 Lakh
+                      </option>
+
+                      <option value="5L+">
+                        ₹5 Lakh+
+                      </option>
+                    </select>
+
+                    {/* Message */}
                     <textarea
-                      id="message"
+                      rows={5}
                       name="message"
-                      rows={3}
-                      className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all resize-none"
-                      placeholder="Tell us a bit about your goals..."
+                      placeholder="Tell us about your business goals, current challenges, and growth plans..."
+                      className={`${inputClass} resize-none`}
                     />
-                  </div>
 
-                  <div className="pt-2">
+                    {/* Submit */}
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 sm:py-4 rounded-xl transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="w-full rounded-xl bg-green-600 py-4 font-semibold text-white transition hover:bg-green-600 disabled:opacity-70"
                     >
                       {isSubmitting ? (
-                        <>
-                          <Loader2 className="w-5 h-5 animate-spin" />
+                        <span className="flex items-center justify-center gap-2">
+                          <Loader2 className="h-5 w-5 animate-spin" />
                           Submitting...
-                        </>
+                        </span>
                       ) : (
-                        "Request for Free Marketing Audit"
+                        "Get Your Free Marketing Audit"
                       )}
                     </button>
-                  </div>
-                </form>
+
+                    {/* Footer */}
+                    <p className="text-center text-xs text-slate-500">
+                      No spam. Ever. We’ll analyze your business
+                      and contact you within 24 hours.
+                    </p>
+                  </form>
+                </>
               )}
             </div>
           </motion.div>

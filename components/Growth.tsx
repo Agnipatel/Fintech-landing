@@ -1,125 +1,109 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { CheckCircle } from "lucide-react";
 import { usePopup } from "@/components/PopupProvider";
+export default function GooglePPCSection() {
+  const { setIsPopupOpen } = usePopup();
 
-const frameworkSteps = [
-    {
-        number: "01",
-        title: "Market & Technical SEO Audit",
-        description:
-            "We analyze your website, competitors, and audience behavior to uncover growth opportunities, technical issues, and high-intent keywords.",
-    },
-    {
-        number: "02",
-        title: "Multi-Channel Acquisition Strategy",
-        description:
-            "We identify the most effective acquisition channels including Google, Meta, LinkedIn, and organic search.",
-    },
-    {
-        number: "03",
-        title: "Performance Campaign Deployment",
-        description:
-            "We launch data-driven campaigns with precise targeting, compelling creatives, and advanced conversion tracking.",
-    },
-    {
-        number: "04",
-        title: "Automation & CRM Integration",
-        description:
-            "We connect marketing automation and CRM systems to capture, track, and nurture every lead.",
-    },
-    {
-        number: "05",
-        title: "Aggressive ROI Scaling",
-        description:
-            "We optimize performance continuously and scale profitable channels to maximize revenue growth.",
-    },
-];
+  return (
+    <section className="bg-black py-12 sm:py-16 lg:py-24">
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8 xl:px-12">
 
-export default function Growth() {
-    const { setIsPopupOpen } = usePopup();
+        <div className="grid items-center gap-12 lg:grid-cols-2">
 
-    return (
-        <section className="relative bg-black text-white overflow-hidden">
-            {/* Background Glow */}
-            <div className="absolute inset-0">
-                <div className="absolute left-0 bottom-0 w-[700px] h-[700px] bg-orange-600/30 blur-[180px] rounded-full" />
-                <div className="absolute left-20 bottom-20 w-[500px] h-[500px] bg-red-500/20 blur-[160px] rounded-full" />
+          {/* Left Side */}
+          <div className="flex h-full items-center">
+            <div className="w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl">
+              <Image
+                src="/ivfp.png"
+                alt="Google PPC For IVF Clinics"
+                width={700}
+                height={700}
+                priority
+                className="h-[350px] w-full object-cover sm:h-[450px] lg:h-[650px]"
+              />
+            </div>
+          </div>
+
+          {/* Right Side */}
+          <div className="flex h-full flex-col justify-center">
+
+            {/* Badge */}
+            <span className="inline-flex w-fit rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-green-400 sm:text-sm">
+              ● High-Conversion PPC Campaigns
+            </span>
+
+            {/* Heading */}
+            <h2 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+              Fill Your Consultation Calendar via{" "}
+              <span className="text-green-500">
+                Google PPC
+              </span>
+            </h2>
+
+            {/* Description */}
+            <p className="mt-6 text-base leading-7 text-gray-300 sm:text-lg sm:leading-8">
+              Don t let valuable search traffic go to competitors. We build
+              and scale high-performing pay-per-click funnels tailored to
+              reproductive health. By targeting precise search phrases like
+              <span className="font-semibold text-white">
+                {" "}best IVF specialist near me
+              </span>,
+              we position your clinic at the top of search results exactly
+              when potential patients need your services.
+            </p>
+
+            {/* Features */}
+            <div className="mt-8 space-y-5">
+
+              <div className="flex items-start gap-3">
+                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
+                <span className="text-gray-300">
+                  Dominate top sponsored search results for competitive IVF keywords
+                </span>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
+                <span className="text-gray-300">
+                  Eliminate wasted ad spend on low-converting search terms
+                </span>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
+                <span className="text-gray-300">
+                  Route qualified traffic to custom high-converting landing pages
+                </span>
+              </div>
+
             </div>
 
-            <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24">
-                <div className="grid lg:grid-cols-2 gap-20">
-                    {/* Left Content */}
-                    <div>
-                        <span className="inline-block px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-semibold mb-6">
-                            Growth Framework
-                        </span>
+            {/* Bottom Text */}
+            <p className="mt-8 text-lg font-semibold text-white">
+              Capture ready-to-book fertility inquiries in your region.
+            </p>
+      
 
-                        <h2 className="text-4xl lg:text-5xl font-bold mb-8">
-                            Our Performance-Driven Growth Framework
-                        </h2>
 
-                        <p className="text-zinc-400 text-lg leading-relaxed max-w-xl mb-10">
-                            Our growth framework eliminates guesswork, generates qualified
-                            leads, and scales revenue through data-driven marketing.
-                            Every stage focuses on measurable performance and sustainable
-                            business growth.
-                        </p>
 
-                        <button
-                            onClick={() => setIsPopupOpen(true)}
-                            className="inline-flex items-center gap-2 border border-zinc-700 hover:border-green-500 hover:text-green-400 px-6 py-3 rounded-xl transition-all duration-300"
-                        >
-                            Book an Audit
-                            <ArrowRight size={18} />
-                        </button>
-                    </div>
+       {/* CTA Button */}
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={() => setIsPopupOpen(true)}
+            className="rounded-full bg-green-600 px-8 py-4 text-lg font-bold text-black transition-all duration-300 hover:bg-green-500"
+          >
+            Launch Paid Campaigns →
+          </button>
+        </div>
+           
 
-                    {/* Timeline */}
-                    <div className="relative">
-                        <div className="absolute left-6 top-0 bottom-0 w-px bg-zinc-700" />
+          </div>
 
-                        <div className="space-y-12">
-                            {frameworkSteps.map((step) => (
-                                <div key={step.number} className="relative pl-20">
-                                    <div className="absolute left-0 top-0 w-12 h-12 bg-white rounded-full flex items-center justify-center text-orange-500 font-bold">
-                                        {step.number}
-                                    </div>
+        </div>
 
-                                    <h3 className="text-2xl font-semibold mb-3">
-                                        {step.title}
-                                    </h3>
-
-                                    <p className="text-zinc-400 leading-relaxed">
-                                        {step.description}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                {/* CTA */}
-                <div className="mt-20 text-center">
-                    <div className="border-t border-zinc-800 pt-12">
-                        <h3 className="text-3xl font-bold mb-4">
-                            Ready to Scale Your Business?
-                        </h3>
-
-                        <p className="text-zinc-400 mb-8 max-w-2xl mx-auto">
-                            Get a free growth audit and discover the fastest path to
-                            generating more leads, increasing revenue, and improving ROI.
-                        </p>
-
-                        <button
-                            onClick={() => setIsPopupOpen(true)}
-                            className="bg-green-600 hover:bg-green-700 text-green-500 px-8 py-4 rounded-full font-semibold transition-all"
-                        >
-                            Book a Growth Strategy Call
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+      </div>
+    </section>
+  );
 }

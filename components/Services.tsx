@@ -1,77 +1,103 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Image from "next/image";
+import { CheckCircle } from "lucide-react";
 import { usePopup } from "@/components/PopupProvider";
 
-const servicesList = [
-  {
-    title: "Meta Ads",
-    desc: "Precision targeting on Facebook and Instagram to drive high-quality leads and conversions.",
-  },
-  {
-    title: "Google Ads",
-    desc: "Capture high-intent search traffic and dominate search engine results pages.",
-  },
-  {
-    title: "SEO",
-    desc: "Long-term organic growth strategies to ensure your business is found by the right audience.",
-  },
-  {
-    title: "Social Media Marketing",
-    desc: "Build brand awareness and engage your community across all major platforms.",
-  },
-  {
-    title: "CRM Automation",
-    desc: "Streamline your sales pipeline and automate follow-ups to close more deals.",
-  },
-  {
-    title: "Website Development",
-    desc: "High-converting, blazing fast landing pages and websites tailored to your brand.",
-  },
-];
-
-export default function Services() {
-  const { setIsPopupOpen } = usePopup();
-
+export default function MetaAdsSection() {
+   const { setIsPopupOpen } = usePopup();
   return (
-    <section id="services" className="py-20 bg-slate-950 text-slate-50">
-      <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="text-green-500">Services</span>
-          </h2>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Comprehensive digital marketing solutions designed to scale your revenue.
-          </p>
-        </div>
+    <section className="bg-black py-12 sm:py-16 lg:py-24">
+      {/* 1440px Container */}
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8 xl:px-12">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {servicesList.map((service, index) => (
-            <div key={index} className="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-green-500/50 transition-colors">
-              <div className="w-12 h-12 bg-green-500/10 text-green-500 rounded-xl flex items-center justify-center mb-6">
-                <span className="font-bold text-xl">{index + 1}</span>
+        {/* Equal 50% / 50% Layout */}
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+
+          {/* Left Side */}
+          <div className="order-2 flex h-full flex-col justify-center lg:order-1">
+
+            {/* Badge */}
+            <span className="inline-flex w-fit rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-green-400 sm:text-sm">
+              ● Meta (Facebook & Instagram) Ads
+            </span>
+
+            {/* Heading */}
+            <h2 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+              Connect With Intentional Patients on{" "}
+              <span className="text-green-500">
+                Social Media
+              </span>
+            </h2>
+
+            {/* Description */}
+            <p className="mt-6 text-base leading-7 text-gray-300 sm:text-lg sm:leading-8">
+              Our customized Meta Ads for fertility centers help IVF clinics
+              build awareness and trust among local audiences. We create
+              educational, compliant, and emotionally engaging ad campaigns
+              that encourage prospective patients to take the first step
+              toward fertility treatment.
+            </p>
+
+            {/* Features */}
+            <div className="mt-8 space-y-5">
+
+              <div className="flex items-start gap-3">
+                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
+                <span className="text-gray-300">
+                  Target precise demographics by age, location, and interests
+                </span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-              <p className="text-slate-400 mb-6">{service.desc}</p>
-              <button
-                onClick={() => setIsPopupOpen(true)}
-                className="text-green-500 font-medium hover:text-green-400 transition-colors"
-              >
-                Learn More &rarr;
-              </button>
-            </div>
-          ))}
-        </div>
 
-        <div className="text-center">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
+                <span className="text-gray-300">
+                  Build emotional trust through patient success stories
+                </span>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
+                <span className="text-gray-300">
+                  Generate high-quality leads directly from social platforms
+                </span>
+              </div>
+
+            </div>
+
+            {/* Bottom Text */}
+            <p className="mt-8 text-lg font-semibold text-white">
+              Convert social media engagement into real clinic appointments.
+            </p>
+  {/* CTA Button */}
+        <div className="mt-12 flex justify-center">
           <button
             onClick={() => setIsPopupOpen(true)}
-            className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-medium transition-colors text-lg"
+            className="rounded-full bg-green-600 px-8 py-4 text-lg font-bold text-black transition-all duration-300 hover:bg-green-500"
           >
-            Get a Free Marketing Audit
+                 Start Now →
           </button>
         </div>
+          
+
+          </div>
+
+          {/* Right Side */}
+          <div className="order-1 flex h-full items-center lg:order-2">
+            <div className="w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl">
+              <Image
+                src="/ivfi.png"
+                alt="Meta Ads for IVF Clinics"
+                width={700}
+                height={700}
+                priority
+                className="h-[350px] w-full object-cover sm:h-[450px] lg:h-[650px]"
+              />
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

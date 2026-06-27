@@ -1,93 +1,84 @@
 "use client";
 
-import { usePopup } from "@/components/PopupProvider";
+import { motion } from "framer-motion";
 
-export default function WhyPanda() {
-  const { setIsPopupOpen } = usePopup();
+export default function HeroSection() {
+return ( <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-pink-50 py-20 lg:py-32">
+{/* Background Blur */} <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-pink-200/30 blur-3xl"></div> <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl"></div>
 
-  const points = [
-    { title: "Qualified Leads", icon: "💎" },
-    { title: "Revenue Growth", icon: "📈" },
-    { title: "Lower Cost Per Lead (CPL)", icon: "📉" },
-    { title: "Higher Return on Ad Spend (ROAS)", icon: "💰" },
-    { title: "Betters Conversion Rates", icon: "⚡" },
-    { title: "Customer Acquisition Growth", icon: "🚀" },
-  ];
 
-  return (
-    <section id="why-us" className="py-24 bg-zinc-50 dark:bg-zinc-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="container mx-auto px-6 lg:px-12">
+    <div className="mx-auto max-w-5xl text-center">
+      
+      {/* Kicker */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-6 inline-flex items-center rounded-full border border-pink-200 bg-white px-5 py-2 text-sm font-medium text-pink-700 shadow-sm"
+      >
+        ✦ Specialized IVF Clinic Digital Marketing Specialists
+      </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Heading */}
+      <motion.h1
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl lg:text-6xl"
+      >
+        IVF Clinic & Fertility Center Digital Marketing Agency in
+        <span className="text-blue-600"> Bangalore</span>
+      </motion.h1>
 
-          <div>
-            <span className="inline-flex px-4 py-2 rounded-full bg-green-500/10 text-green-600 text-sm font-semibold mb-6">
-              Why Choose PANDAeCe
-            </span>
+      {/* Description */}
+      <motion.p
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        className="mx-auto mt-8 max-w-4xl text-lg leading-relaxed text-gray-600 md:text-xl"
+      >
+        Stop missing out on high-intent patients searching for fertility
+        treatments in your region. Our specialized digital marketing
+        services for fertility centers target couples at the exact moment
+        they look for IVF, IUI, egg freezing, and fertility treatment
+        solutions.
+        <br />
+        <br />
+        By combining localized Bangalore fertility clinic SEO with
+        high-converting Google Ads and PPC campaigns, we deliver a steady
+        stream of pre-qualified patient inquiries directly to your patient
+        coordinators.
+      </motion.p>
 
-            <h2 className="text-3xl md:text-5xl font-bold text-black dark:text-white mb-6">
-              Smarter Performance Marketing Starts Here
-            </h2>
+      {/* CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+        className="mt-10"
+      >
+        <button className="rounded-xl bg-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-xl">
+          Get a Free Strategy Blueprint →
+        </button>
+      </motion.div>
 
-            <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400">
-              <p>
-                Todays customers discover, compare, and purchase products online.
-              </p>
+      {/* Trust Anchors */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
+        className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-gray-700"
+      >
+        <span>✓ Transparent Reports</span>
+        <span>✓ ROI-Driven Campaigns</span>
+        <span>✓ Dedicated Support</span>
+        <span>✓ Proven Growth Strategy</span>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
-              <p>
-                Businesses relying only on traditional marketing often struggle
-                to generate consistent leads and measurable growth.
-              </p>
 
-              <p>
-                PANDAeCe helps brands scale using AI-powered performance
-                marketing strategies focused on lead generation, customer
-                acquisition, and revenue growth.
-              </p>
-
-              <p>
-                As a trusted performance marketing agency in Bangalore,
-                we combine advertising, automation, analytics, and creative
-                strategy to build scalable growth systems.
-              </p>
-            </div>
-
-            <button
-              onClick={() => setIsPopupOpen(true)}
-              className="mt-8 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold transition-all"
-            >
-              Lets Discuss Your Growth Goals
-            </button>
-          </div>
-
-          <div className="bg-white dark:bg-zinc-900 p-8 lg:p-12 rounded-3xl shadow-sm border border-zinc-100 dark:border-zinc-800">
-            <h3 className="text-2xl font-bold text-black dark:text-white mb-4">
-              Results-Focused Performance Marketing
-            </h3>
-
-            <p className="text-zinc-600 dark:text-zinc-400 mb-8">
-              We focus on:
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {points.map((point, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 hover:bg-green-50 dark:hover:bg-green-900/10 transition-all"
-                >
-                  <span className="text-2xl">{point.icon}</span>
-
-                  <span className="font-medium text-black dark:text-white">
-                    {point.title}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-  );
+);
 }

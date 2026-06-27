@@ -1,32 +1,88 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePopup } from '@/components/PopupProvider';
+import Link from "next/link";
+import { usePopup } from "@/components/PopupProvider";
 
 export default function Footer() {
   const { setIsPopupOpen } = usePopup();
 
   return (
-    <footer className="py-12 border-t border-zinc-100 dark:border-zinc-800 bg-white dark:bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-8 md:mb-0">
-            <Link href="/" className="text-2xl font-bold text-black dark:text-white tracking-tighter">
-              PANDA<span className="text-green-600">eCe</span>
+    <footer className="border-t border-zinc-800 bg-black text-white">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+          {/* Logo & Description */}
+          <div className="max-w-md">
+            <Link
+              href="/"
+              className="text-3xl font-bold tracking-tight"
+            >
+              PANDA<span className="text-[#22c55e]">eCe</span>
             </Link>
-            <p className="mt-4 text-zinc-500 dark:text-zinc-500 max-w-sm">
-              Smarter Performance Marketing. Faster Business Growth. AI-powered lead generation and ROI focused strategies.
+
+            <p className="mt-5 text-sm leading-7 text-zinc-400 sm:text-base">
+              Helping IVF clinics and fertility centers generate qualified
+              patient leads through SEO, Google Ads, Meta Ads, Local SEO, and
+              AI-powered digital marketing strategies.
             </p>
           </div>
-          <div className="flex space-x-10 text-sm font-medium text-zinc-600 dark:text-zinc-400 items-center">
-            <Link href="#why-us" className="hover:text-black dark:hover:text-white">Why Us</Link>
-            <Link href="#services" className="hover:text-black dark:hover:text-white">Services</Link>
-            <Link href="#faq" className="hover:text-black dark:hover:text-white">FAQ</Link>
-            <button onClick={() => setIsPopupOpen(true)} className="hover:text-black dark:hover:text-white">Contact</button>
+
+          {/* Navigation */}
+          <div className="grid grid-cols-2 gap-x-10 gap-y-4 text-sm font-medium sm:grid-cols-3 md:text-base">
+            <Link
+              href="#marketing"
+              className="transition hover:text-[#22c55e]"
+            >
+              IVF Marketing
+            </Link>
+
+            <Link
+              href="#growth"
+              className="transition hover:text-[#22c55e]"
+            >
+              IVF Growth
+            </Link>
+
+            <Link
+              href="#services"
+              className="transition hover:text-[#22c55e]"
+            >
+              Services
+            </Link>
+
+            <Link
+              href="#ivf-process"
+              className="transition hover:text-[#22c55e]"
+            >
+              IVF Process
+            </Link>
+
+            <Link
+              href="#IVFFAQSection"
+              className="transition hover:text-[#22c55e]"
+            >
+              FAQ
+            </Link>
+
+            <button
+              onClick={() => setIsPopupOpen(true)}
+              className="text-left transition hover:text-[#22c55e]"
+            >
+              Contact
+            </button>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-zinc-50 dark:border-zinc-900 text-center text-sm text-zinc-400">
-          © {new Date().getFullYear()} PANDAeCe. All rights reserved. Performance Marketing Agency in Bangalore.
+
+        {/* Bottom */}
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-zinc-800 pt-6 text-center text-sm text-zinc-500 md:flex-row">
+          <p>
+            © {new Date().getFullYear()}{" "}
+            <span className="font-semibold text-white">PANDAeCe</span>. All
+            Rights Reserved.
+          </p>
+
+          <p>
+            IVF Digital Marketing Agency • Bangalore • India
+          </p>
         </div>
       </div>
     </footer>

@@ -5,9 +5,43 @@ export async function createGHLContacts(data: {
   propertyType: string;
   budget?: string;
   message?: string;
+  website?: string;
 }) {
   try {
-    const [firstName, ...rest] = data.name.split(" ");
+    const [firstName, ...rest] = data.name.trim().split(" ");
+
+    const payload = {
+      locationId: process.env.GHL_LOCATION_ID,
+
+      firstName,
+      lastName: rest.join(" "),
+
+      email: data.email,
+      phone: data.phone,
+
+      // ✅ Correct field
+      website: data.website || "",
+
+      tags: ["Website Lead", "IVF"],
+
+      customFields: [
+        {
+          key: "service_needed",
+          fieldValue: data.propertyType,
+        },
+        {
+          key: "monthly_marketing_budget",
+          fieldValue: data.budget || "",
+        },
+        {
+          key: "currently_facing_challenge_in_marketing_efforts",
+          fieldValue: data.message || "",
+        },
+      ],
+    };
+
+    console.log("Payload");
+    console.log(JSON.stringify(payload, null, 2));
 
     const response = await fetch(
       "https://services.leadconnectorhq.com/contacts/",
@@ -18,43 +52,18 @@ export async function createGHLContacts(data: {
           Version: "2021-07-28",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          locationId: process.env.GHL_LOCATION_ID,
-
-          firstName,
-          lastName: rest.join(" "),
-
-          email: data.email,
-          phone: data.phone,
-
-          tags: ["Website Lead", "Pandaece"],
-
-          customFields: [
-            {
-              key: "service_needed",
-              fieldValue: data.propertyType,
-            },
-            {
-              key: "monthly_marketing_budget",
-              fieldValue: data.budget || "",
-            },
-            {
-              key: "currently_facing_challenge_in_marketing_efforts",
-              fieldValue: data.message || "",
-            },
-          ],
-        }),
+        body: JSON.stringify(payload),
       }
     );
 
     const result = await response.json();
 
-    console.log("GHL Status:", response.status);
-    console.log("GHL Contact Created:", result);
+    console.log("Status:", response.status);
+    console.log(result);
 
     return result;
   } catch (error) {
-    console.error("GHL Error:", error);
+    console.error(error);
     return null;
   }
 }

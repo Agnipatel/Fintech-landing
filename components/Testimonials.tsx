@@ -1,104 +1,88 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { usePopup } from "@/components/PopupProvider";
+import {
+  Users,
+  Bot,
+  FileText,
+} from "lucide-react";
 
-const data = [
+const services = [
   {
-    headache:
-      "Our campaigns start strong but stall quickly, and increasing the budget fails to revive performance due to creative fatigue.",
-    cure: "We engineer a continuous pipeline of fresh ad concepts, high-impact designs, and copy to maintain peak ad delivery.",
+    icon: Users,
+    title: "CRM & Lead Automation",
+    description:
+      "Streamline lead management with automated follow-ups, WhatsApp reminders, and patient nurturing workflows to reduce lead drop-offs and improve conversion rates.",
   },
   {
-    headache:
-      "People click our ads, but leads are too expensive because our ad messaging doesn't match our landing pages.",
-    cure: "As a top digital marketing agency in Bangalore, we match hyper-focused ad groups with custom-developed landing pages to increase relevance and slash your cost per lead.",
+    icon: Bot,
+    title: "Marketing Automation",
+    description:
+      "Automate appointment reminders, email nurturing, and re-engagement campaigns to improve patient retention, operational efficiency, and patient engagement across every stage of the journey.",
   },
   {
-    headache:
-      "We scale budgets hoping for more leads, but costs simply spike while daily ad performance remains completely unpredictable.",
-    cure: "Our performance marketing agency in Bangalore deploys layered, data-backed bidding strategies that target high-intent core audiences for cost-effective scaling.",
-  },
-  {
-    headache:
-      "We are generating leads, but they are completely unqualified, a poor fit, and waste our sales team's valuable time.",
-    cure: "We refine precise geographic and demographic targeting while embedding custom lead qualification filters right inside your forms.",
-  },
-  {
-    headache:
-      "Agencies dump money into pretty ads, but send traffic to a generic homepage. Business owners pay for clicks that bounce within seconds.",
-    cure: "We design bespoke, fast-loading landing pages matched perfectly to user intent, helping increase conversion rates and reduce wasted spend.",
-  },
-  {
-    headache:
-      "A lead fills out your form, but your team follows up too late. By then, they've already contacted competitors.",
-    cure: "We automate instant WhatsApp, email, and sales notifications so every lead receives immediate engagement.",
-  },
-  {
-    headache:
-      "You know sales are happening, but you can't identify which campaigns, keywords, or channels actually drive revenue.",
-    cure: "We integrate advanced CRM tracking and attribution systems that connect every lead and sale back to the exact marketing source.",
+    icon: FileText,
+    title: "Content Marketing & Medical SEO",
+    description:
+      "Attract organic search visits with comprehensive informational assets. Our specialized copywriters create deep-dive IVF and fertility resources that build authority and sustainably reduce patient acquisition costs.",
   },
 ];
 
-export default function MarketingHeadaches() {
-  const { setIsPopupOpen } = usePopup();
-
+export default function AdvancedDigitalInfrastructure() {
   return (
-    <section className="bg-black py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-14">
-          <span className="inline-flex px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-semibold mb-4">
-            Why Businesses Struggle To Scale
+    <section className="bg-black py-12 sm:py-16 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+
+        {/* Top Badge */}
+        <div className="flex justify-center">
+          <span className="inline-flex rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-center text-xs font-semibold uppercase tracking-wider text-green-400 sm:px-5 sm:text-sm">
+            ● End-to-End Digital Marketing Services for IVF & Fertility Clinics
           </span>
-
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Marketing Headaches vs
-            <span className="text-green-500"> PANDAeCe s Cure</span>
-          </h2>
         </div>
 
-        <div className="space-y-6">
-          {data.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="grid md:grid-cols-2 gap-6"
-            >
-              <div className="bg-zinc-900 border border-red-500/20 rounded-3xl p-6">
-                <h3 className="text-red-500 font-bold text-lg mb-4">
-                Your Challenge
+        {/* Heading */}
+        <h2 className="mt-6 text-center text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+          Advanced Digital Infrastructure for{" "}
+          <span className="text-green-500">
+            Modern Fertility Centers
+          </span>
+        </h2>
+
+        {/* Service Cards */}
+        <div className="mt-12 grid gap-6 sm:mt-16 md:grid-cols-2 lg:grid-cols-3">
+
+          {services.map((service, index) => {
+            const Icon = service.icon;
+
+            return (
+              <div
+                key={index}
+                className="group rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-500/30 hover:bg-white/10 hover:shadow-2xl lg:p-8"
+              >
+                {/* Icon */}
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-green-500/10 transition-all duration-300 group-hover:bg-green-500/20">
+                  <Icon className="h-7 w-7 text-green-500" />
+                </div>
+
+                {/* Title */}
+                <h3 className="mt-6 text-xl font-bold text-white lg:text-2xl">
+                  {service.title}
                 </h3>
 
-                <p className="text-zinc-300 leading-relaxed">
-                  {item.headache}
+                {/* Description */}
+                <p className="mt-4 leading-7 text-gray-300">
+                  {service.description}
                 </p>
-              </div>
 
-              <div className="bg-zinc-900 border border-green-500/20 rounded-3xl p-6">
-                <h3 className="text-green-500 font-bold text-lg mb-4">
-                 Our Solution
-                </h3>
-
-                <p className="text-zinc-300 leading-relaxed">
-                  {item.cure}
-                </p>
+                {/* Button */}
+                <button className="mt-6 font-semibold text-green-500 transition-all duration-300 hover:text-green-400">
+                  Learn More →
+                </button>
               </div>
-            </motion.div>
-          ))}
+            );
+          })}
+
         </div>
 
-        <div className="text-center mt-14">
-          <button
-            onClick={() => setIsPopupOpen(true)}
-            className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold transition-all"
-          >
-           Boost Your Business Growth
-          </button>
-        </div>
       </div>
     </section>
   );

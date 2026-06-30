@@ -20,9 +20,7 @@ export default function Footer() {
             </Link>
 
             <p className="mt-5 text-sm leading-7 text-zinc-400 sm:text-base">
-              Helping IVF clinics and fertility centers generate qualified
-              patient leads through SEO, Google Ads, Meta Ads, Local SEO, and
-              AI-powered digital marketing strategies.
+             Helping fintech companies, NBFCs, digital banking platforms, investment apps, insurance providers, and financial service businesses generate qualified users through SEO, Google Ads, Meta Ads, Local SEO, and AI-powered digital marketing strategies.
             </p>
           </div>
 
@@ -32,14 +30,14 @@ export default function Footer() {
               href="#marketing"
               className="transition hover:text-[#22c55e]"
             >
-              IVF Marketing
+              Fintech Marketing
             </Link>
 
             <Link
               href="#growth"
               className="transition hover:text-[#22c55e]"
             >
-              IVF Growth
+              Fintech Growth
             </Link>
 
             <Link
@@ -53,7 +51,7 @@ export default function Footer() {
               href="#ivf-process"
               className="transition hover:text-[#22c55e]"
             >
-              IVF Process
+              Fintech Process
             </Link>
 
             <Link
@@ -81,7 +79,7 @@ export default function Footer() {
           </p>
 
           <p>
-            IVF Digital Marketing Agency • Bangalore • India
+            Fintech Digital Marketing Agency • Bangalore • India
           </p>
         </div>
       </div>

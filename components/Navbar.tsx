@@ -28,14 +28,14 @@ export default function Navbar() {
             href="#marketing"
             className="transition hover:text-[#22c55e]"
           >
-            IVF Marketing
+            Fintech Marketing
           </Link>
 
           <Link
             href="#growth"
             className="transition hover:text-[#22c55e]"
           >
-            IVF Growth
+           Fintech Growth
           </Link>
 
           <Link
@@ -49,11 +49,11 @@ export default function Navbar() {
             href="#ivf-process"
             className="transition hover:text-[#22c55e]"
           >
-            IVF Process
+          Fintech Process
           </Link>
 
           <Link
-            href="#IVFFAQSection"
+            href="#FinancialFAQ"
             className="transition hover:text-[#22c55e]"
           >
             FAQ
@@ -92,11 +92,11 @@ export default function Navbar() {
         <div className="border-t bg-white dark:bg-zinc-950">
           <div className="flex flex-col space-y-5 p-6">
             <Link href="#marketing" onClick={closeMenu}>
-              IVF Marketing
+            Fintech Marketing
             </Link>
 
             <Link href="#growth" onClick={closeMenu}>
-              IVF Growth
+              Fintech Growth
             </Link>
 
             <Link href="#services" onClick={closeMenu}>
@@ -104,10 +104,10 @@ export default function Navbar() {
             </Link>
 
             <Link href="#ivf-process" onClick={closeMenu}>
-              IVF Process
+              Fintech Process
             </Link>
 
-            <Link href="#IVFFAQSection" onClick={closeMenu}>
+            <Link href="#FAQSection" onClick={closeMenu}>
               FAQ
             </Link>
 

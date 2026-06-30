@@ -1,116 +1,162 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
-import { usePopup } from "@/components/PopupProvider";
+import { CheckCircle } from "lucide-react";
 
-const faqs = [
-  {
-    question:
-      "How quickly can we expect new IVF leads from your campaigns?",
-    answer:
-      "Paid advertising campaigns on Google and Meta can start driving high-intent patient inquiries within the first week of launch. Long-term organic growth from our technical SEO and content marketing strategies typically builds compounding momentum over 90 to 120 days.",
-  },
-  {
-    question:
-      "Do you handle the ad creation and copy writing for our doctors?",
-    answer:
-      "Yes, we handle everything end-to-end. Our medical copywriters create compliant, empathetic ad variations, landing page copy, and informative blog assets that require minimal editing from your busy clinical staff.",
-  },
-  {
-    question:
-      "How do you track the quality of the leads being generated?",
-    answer:
-      "We set up deep attribution tracking using secure medical CRM integrations and call tracking software. This allows us to trace a lead from a specific keyword click all the way down to a booked physical appointment, helping identify and prioritize high-intent patient inquiries.",
-  },
-  {
-    question:
-      "Can you optimize our existing Google Business Profile for local maps?",
-    answer:
-      "Local search dominance is one of our specialties. We optimize your Google Business Profile, build authoritative medical citations, and streamline your review acquisition strategy to improve local visibility and strengthen your presence in Google Maps results.",
-  },
+const features = [
+  "Technical Site Performance & Funnel Speed Review",
+  "Programmatic SEO Competitor Gap Analysis",
+  "Ad Spend Efficiency & Waste Identification Audit",
+  "Attribution Tracking Validation",
+  "Onboarding Flow Friction Analysis",
+  "90-Day Scalable User Acquisition Roadmap",
 ];
 
-export default function IVFFAQSection() {
-    const { setIsPopupOpen } = usePopup();
-  const [active, setActive] = useState<number | null>(0);
-
+export default function AuditFormSection() {
   return (
-    <section className="bg-black py-12 sm:py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        
-        {/* Header */}
-        <div className="text-center">
-          <span className="inline-flex items-center rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-green-400 sm:text-sm">
-            ● FAQs
-          </span>
+    <section className="max-w-6xl mx-auto px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+          Find Out Why Users Choose Other
+          <br />
+          Bangalore FinTech Platforms
+        </h2>
 
-          <h2 className="mt-6 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-            Questions Clinics Ask Before
-            <span className="block text-green-500 sm:inline">
-              {" "}
-              Partnering With Us
-            </span>
-          </h2>
+        <p className="mt-5 text-gray-500 max-w-3xl mx-auto">
+          Our performance marketing specialists will identify structural
+          leakages in your acquisition funnel and provide actionable
+          strategies to decrease customer acquisition cost (CAC).
+        </p>
+      </div>
 
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
-            Get answers to the most common questions fertility clinics and IVF
-            centers ask before starting a digital growth partnership.
-          </p>
-        </div>
+      <div className="bg-white rounded-3xl shadow-xl overflow-hidden grid lg:grid-cols-2">
 
-        {/* FAQ Accordion */}
-        <div className="mx-auto mt-10 max-w-5xl space-y-4 lg:mt-14">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-green-500/20"
-            >
-              <button
-                onClick={() =>
-                  setActive(active === index ? null : index)
-                }
-                className="flex w-full items-center justify-between px-5 py-5 text-left sm:px-6"
-              >
-                <h3 className="pr-4 text-base font-semibold text-white sm:text-lg">
-                  {faq.question}
-                </h3>
+        {/* Left Side */}
 
-                {active === index ? (
-                  <ChevronUp className="h-5 w-5 flex-shrink-0 text-green-500" />
-                ) : (
-                  <ChevronDown className="h-5 w-5 flex-shrink-0 text-green-500" />
-                )}
-              </button>
+        <div className="p-10 border-r border-gray-100">
 
-              <div
-                className={`grid transition-all duration-300 ease-in-out ${
-                  active === index
-                    ? "grid-rows-[1fr]"
-                    : "grid-rows-[0fr]"
-                }`}
-              >
-                <div className="overflow-hidden">
-                  <div className="border-t border-white/10 px-5 py-5 sm:px-6">
-                    <p className="text-sm leading-7 text-gray-300 sm:text-base">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
+          <h3 className="font-bold text-lg mb-8">
+            What You ll Receive:
+          </h3>
+
+          <div className="space-y-6">
+            {features.map((item, index) => (
+              <div key={index} className="flex items-start gap-4">
+                <CheckCircle
+                  className="text-green-500 mt-1"
+                  size={22}
+                />
+
+                <p className="text-gray-700 leading-7">
+                  {item}
+                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
         </div>
 
-      
-       {/* CTA Button */}
-        <div className="mt-12 flex justify-center">
-          <button
-            onClick={() => setIsPopupOpen(true)}
-            className="rounded-full bg-green-600 px-8 py-4 text-lg font-bold text-black transition-all duration-300 hover:bg-green-500"
-          >
-            Launch Paid Campaigns →
-          </button>
+        {/* Right Side */}
+
+        <div className="p-10">
+
+          <form className="space-y-5">
+
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Name
+              </label>
+
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Phone Number
+              </label>
+
+              <input
+                type="tel"
+                placeholder="+91 XXXXX XXXXX"
+                className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Corporate Email
+              </label>
+
+              <input
+                type="email"
+                placeholder="corporate@company.com"
+                className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Location
+              </label>
+
+              <select className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500">
+                <option>Select your location</option>
+                <option>Bangalore</option>
+                <option>Mumbai</option>
+                <option>Delhi</option>
+                <option>Hyderabad</option>
+                <option>Pune</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Website URL
+              </label>
+
+              <input
+                type="url"
+                placeholder="https://domain.com"
+                className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                How Did You Hear About Us?
+              </label>
+
+              <input
+                type="text"
+                placeholder="Google Ads, Meta Ads, LinkedIn"
+                className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Your Message
+              </label>
+
+              <textarea
+                rows={4}
+                placeholder="Tell us about your goals, challenges or growth plans"
+                className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full rounded-xl bg-gradient-to-r from-blue-700 to-blue-500 py-4 text-white font-semibold text-lg shadow-lg hover:scale-[1.02] transition"
+            >
+              Get Your Performance Audit
+            </button>
+
+          </form>
+
         </div>
 
       </div>

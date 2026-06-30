@@ -12,6 +12,7 @@ import WhatsAppButton from "@/components/WhatApp";
 import Marking from "@/components/Marking";
 import IVFProcessAndTestimonials from "@/components/IVFProcessAndTestimonials";
 import IVFFAQSection from "@/components/IVFFAQSection";
+import FAQSection from "@/components/FAQSection";
 
 export default function Home() {
   return (
@@ -61,14 +62,16 @@ export default function Home() {
       </section>
 
       {/* IVF FAQ */}
-      <section id="IVFFAQSection" className="scroll-mt-20">
+      {/* <section id="IVFFAQSection" className="scroll-mt-20">
         <IVFFAQSection />
-      </section>
+      </section> */}
+       <FAQSection />
 
       {/* Contact */}
       <section id="contact" className="scroll-mt-20">
         <ContactForm />
       </section>
+
 
       {/* Footer */}
       <Footer />

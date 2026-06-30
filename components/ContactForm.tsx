@@ -82,16 +82,14 @@ export default function IVFAuditSection() {
           </span>
 
           <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
-            Find Out Why IVF Patients Choose Other
+           Find Out Why Users Choose Other 
             <span className="block text-green-500">
-              Bangalore Clinics
+              Financial Platforms
             </span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-base leading-7 text-gray-300 sm:text-lg sm:leading-8">
-            Our fertility marketing experts will identify gaps in your digital
-            strategy and provide actionable recommendations to increase
-            consultation bookings, patient inquiries, and clinic growth.
+        Our performance marketing specialists will identify structural leakages in your acquisition funnel and provide actionable strategies to decrease customer acquisition cost (CAC).
           </p>
         </div>
 
@@ -202,7 +200,7 @@ export default function IVFAuditSection() {
                 />
 
                 <span className="text-sm text-gray-300">
-                  I'm not a robot
+                  Im not a robot
                 </span>
 
                 <span className="text-xs text-gray-500">
@@ -223,7 +221,7 @@ export default function IVFAuditSection() {
             </button>
 
             <p className="text-center text-sm text-gray-400">
-              No spam. Ever. We'll analyze your clinic and contact you within
+              No spam. Ever. Well analyze your clinic and contact you within
               24 hours.
             </p>
 

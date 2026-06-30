@@ -22,7 +22,7 @@ export async function createGHLContacts(data: {
       // ✅ Correct field
       website: data.website || "",
 
-      tags: ["Website Lead", "IVF"],
+      tags: ["Website Lead", "FINTECH"],
 
       customFields: [
         {

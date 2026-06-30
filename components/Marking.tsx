@@ -1,128 +1,185 @@
 "use client";
 
-import Image from "next/image";
 import {
+  CheckCircle2,
+  ArrowRight,
+  Globe,
   Search,
-  Target,
-  ShieldCheck,
-  TrendingUp,
+  Sparkles,
 } from "lucide-react";
-import { usePopup } from "@/components/PopupProvider";
+import { usePopup } from '@/components/PopupProvider';
 
-const cards = [
-  {
-    icon: Search,
-    title: "Dominant Local Search",
-    description:
-      "Rank at the top of Google searches when couples actively seek fertility treatments and reproductive care solutions.",
-  },
-  {
-    icon: Target,
-    title: "Precision PPC Targeting",
-    description:
-      "Reach highly qualified patients through carefully optimized paid advertising campaigns.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Patients-First Credibility",
-    description:
-      "Build trust through educational content, reviews, and strong online reputation management.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Direct Consultation Growth",
-    description:
-      "Convert website visitors into consultation bookings with optimized landing pages and conversion funnels.",
-  },
+const features = [
+  "Rank #1 for competitive commercial intent financial keywords",
+  "Rank for high-intent commercial financial searches",
+  "Get cited by AI search engines and answer platforms",
+  "Build long-term authority across search ecosystems",
 ];
 
-export default function WhyIVFMarketing() {
-   const { setIsPopupOpen } = usePopup();
+export default function OrganicVisibility() {
+  const { setIsPopupOpen } = usePopup();
   return (
-    <section className="bg-black py-12 sm:py-16 lg:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8 xl:px-12">
+    <section className="relative overflow-hidden bg-black py-16 sm:py-20 lg:py-24">
+      {/* Background Blur */}
+      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-green-500 blur-[130px]" />
+      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-green-500 blur-[140px]" />
 
-        {/* Top Section */}
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          {/* Left */}
 
-          {/* Left Side */}
-          <div className="flex h-full items-center">
-            <div className="w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl">
-              <Image
-                src="/ivf8.png"
-                alt="IVF Consultation"
-                width={700}
-                height={700}
-                priority
-                className="h-[250px] w-full object-cover sm:h-[350px] lg:h-[350px]"
-              />
-            </div>
-          </div>
+          <div>
+            {/* Badge */}
 
-          {/* Right Side */}
-          <div className="flex h-full flex-col justify-center">
+            <span className="inline-flex items-center rounded-full border border-green-500 bg-emerald-500/10 px-4 py-2 text-xs font-semibold text-green-400 sm:px-5 sm:text-sm">
+              <span className="mr-2 h-2 w-2 rounded-full bg-green-400"></span>
+              SEO & AI Visibility for Financial Platforms
+            </span>
 
-            <div className="inline-flex w-fit items-center rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-xs font-medium text-green-400 sm:text-sm">
-              ● Scale Your Fertility Center Sustainably
-            </div>
+            {/* Heading */}
 
-            <h2 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Why Top-Performing IVF Clinics
-              <span className="block text-green-500">
-                Rely on Digital Marketing
+            <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl">
+              Specialized
+              <span className="bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent">
+                {" "}
+                SEO (GEO & AEO)
               </span>
+              <br />
+              Services for Financial
+              <br />
+              Platforms
             </h2>
 
-            <p className="mt-6 text-base leading-7 text-gray-300 sm:text-lg sm:leading-8">
-              Fertility clinics face intense competition online. Our proven
-              digital marketing strategies help clinics dominate local search,
-              attract qualified patient inquiries, and increase consultation
-              bookings through data-driven campaigns.
+            {/* Description */}
+
+            <p className="mt-8 text-base leading-8 text-gray-400 sm:text-lg">
+              Modern financial users no longer search only on Google. They
+              increasingly rely on AI assistants, answer engines, and
+              recommendation platforms before selecting a fintech solution.
+              <br />
+              <br />
+              Our SEO, GEO, and AEO strategies position your platform where
+              high-intent users discover, compare, and trust financial
+              products.
             </p>
 
+            {/* Features */}
+
+            <div className="mt-10 space-y-5">
+              {features.map((item, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <CheckCircle2 className="mt-1 h-6 w-6 text-emerald-400" />
+
+                  <p className="text-base leading-7 text-gray-300 sm:text-lg">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+
+            <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:items-center">
+              <p className="text-lg font-semibold text-white">
+                Scale Your Active Users
+              </p>
+
+          
+                <button
+            onClick={() => setIsPopupOpen(true)}
+            className="group inline-flex items-center justify-center rounded-xl bg-emerald-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-emerald-500"
+          >
+                Start Now
+                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </button>
+            </div>
           </div>
 
-        </div>
+          {/* Right */}
 
-        {/* Cards Row */}
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="relative">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl sm:p-8 lg:p-10">
+              <div className="space-y-6">
+                {/* Card */}
 
-          {cards.map((card, index) => {
-            const Icon = card.icon;
+                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:border-emerald-500">
+                  <div className="rounded-xl bg-green-500 p-4">
+                    <Search className="h-8 w-8 text-emerald-400" />
+                  </div>
 
-            return (
-              <div
-                key={index}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-500/30 hover:bg-white/10 hover:shadow-xl"
-              >
-                <div className="mb-4 inline-flex rounded-xl bg-green-500/10 p-3">
-                  <Icon className="h-6 w-6 text-green-500" />
+                  <div>
+                    <h3 className="text-lg font-bold text-white">
+                      Search Ranking
+                    </h3>
+
+                    <p className="text-gray-400">
+                      Commercial Financial Keywords
+                    </p>
+                  </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-white">
-                  {card.title}
-                </h3>
+                {/* Card */}
 
-                <p className="mt-3 text-sm leading-6 text-gray-300">
-                  {card.description}
-                </p>
+                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:border-green-500">
+                  <div className="rounded-xl bg-green-500 p-4">
+                    <Sparkles className="h-8 w-8 text-green-400" />
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-bold text-white">
+                      AI Citations
+                    </h3>
+
+                    <p className="text-gray-400">
+                      GEO & AEO Optimization
+                    </p>
+                  </div>
+                </div>
+
+                {/* Card */}
+
+                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:border-green-500">
+                  <div className="rounded-xl bg-green-500 p-4">
+                    <Globe className="h-8 w-8 text-green-400" />
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-bold text-white">
+                      Organic Authority
+                    </h3>
+
+                    <p className="text-gray-400">
+                      Long-Term Search Visibility
+                    </p>
+                  </div>
+                </div>
               </div>
-            );
-          })}
+            </div>
 
-        </div>
+            {/* Floating Card */}
 
+            <div className="absolute -right-6 -top-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
+              <p className="text-sm text-gray-300">
+                Average Organic Growth
+              </p>
 
+              <h4 className="mt-2 text-3xl font-bold text-green-400">
+                +312%
+              </h4>
+            </div>
 
+            {/* Floating Card */}
 
-       {/* CTA Button */}
-        <div className="mt-12 flex justify-center">
-          <button
-            onClick={() => setIsPopupOpen(true)}
-            className="rounded-full bg-green-600 px-8 py-4 text-lg font-bold text-black transition-all duration-300 hover:bg-green-500"
-          >
-            Launch Paid Campaigns →
-          </button>
+            <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
+              <p className="text-sm text-gray-300">
+                AI Visibility Score
+              </p>
+
+              <h4 className="mt-2 text-3xl font-bold text-green-400">
+                98%
+              </h4>
+            </div>
+          </div>
         </div>
       </div>
     </section>

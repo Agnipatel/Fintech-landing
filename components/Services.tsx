@@ -1,103 +1,141 @@
 "use client";
 
-import Image from "next/image";
-import { CheckCircle } from "lucide-react";
-import { usePopup } from "@/components/PopupProvider";
+import {
+  Bot,
+  Database,
+  Globe,
+  Smartphone,
+  BarChart3,
+  TrendingUp,
+  ArrowRight,
+} from "lucide-react";
+import { usePopup } from '@/components/PopupProvider';
 
-export default function MetaAdsSection() {
+const services = [
+  {
+    icon: Bot,
+    title: "Marketing Automation",
+    description:
+      "Automate lead nurturing, engagement, and customer journeys.",
+  },
+  {
+    icon: Database,
+    title: "CRM Implementation",
+    description:
+      "Centralize customer data and streamline sales workflows.",
+  },
+  {
+    icon: Globe,
+    title: "Website Development",
+    description:
+      "High-converting websites and landing pages built for financial brands.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile App Development",
+    description:
+      "Secure, scalable apps for banking, lending, and investment platforms.",
+  },
+  {
+    icon: BarChart3,
+    title: "Analytics & Tracking",
+    description:
+      "Measure every touchpoint with accurate attribution and funnel tracking.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Conversion Rate Optimization (CRO)",
+    description:
+      "Improve onboarding, activation, and customer conversion rates for fintech and NBFCs.",
+  },
+];
+
+export default function CompleteServices() {
    const { setIsPopupOpen } = usePopup();
   return (
-    <section className="bg-black py-12 sm:py-16 lg:py-24">
-      {/* 1440px Container */}
-      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8 xl:px-12">
+    <section className="relative overflow-hidden bg-black py-16 sm:py-20 lg:py-24">
+      {/* Background Blur */}
+      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-green-500/10 blur-[130px]" />
+      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-green-500/10 blur-[140px]" />
 
-        {/* Equal 50% / 50% Layout */}
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-8">
+        {/* Badge */}
 
-          {/* Left Side */}
-          <div className="order-2 flex h-full flex-col justify-center lg:order-1">
+        <div className="flex justify-center">
+          <span className="inline-flex items-center rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs font-semibold text-green-400 sm:px-5 sm:text-sm">
+            <span className="mr-2 h-2 w-2 rounded-full bg-green-400"></span>
+            Full-Service Growth Partner
+          </span>
+        </div>
 
-            {/* Badge */}
-            <span className="inline-flex w-fit rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-green-400 sm:text-sm">
-              ● Meta (Facebook & Instagram) Ads
+        {/* Heading */}
+
+        <div className="mx-auto mt-8 max-w-4xl text-center">
+          <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl">
+            Complete
+            <span className="bg-gradient-to-r from-green-400 to-green-400 bg-clip-text text-transparent">
+              {" "}
+              Digital Marketing
             </span>
+            <br />
+            Services for Financial Companies
+          </h2>
 
-            {/* Heading */}
-            <h2 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Connect With Intentional Patients on{" "}
-              <span className="text-green-500">
-                Social Media
-              </span>
-            </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-gray-400 sm:text-lg">
+            Everything your financial company needs—from marketing,
+            automation, CRM, websites, mobile apps, and analytics—under one
+            trusted growth partner.
+          </p>
+        </div>
 
-            {/* Description */}
-            <p className="mt-6 text-base leading-7 text-gray-300 sm:text-lg sm:leading-8">
-              Our customized Meta Ads for fertility centers help IVF clinics
-              build awareness and trust among local audiences. We create
-              educational, compliant, and emotionally engaging ad campaigns
-              that encourage prospective patients to take the first step
-              toward fertility treatment.
-            </p>
+        {/* Services */}
 
-            {/* Features */}
-            <div className="mt-8 space-y-5">
+        <div className="mt-14 grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((service, index) => {
+            const Icon = service.icon;
 
-              <div className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
-                <span className="text-gray-300">
-                  Target precise demographics by age, location, and interests
-                </span>
+            return (
+              <div
+                key={index}
+                className="group rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-green-500 hover:bg-white/10 hover:shadow-2xl sm:p-8"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-500/10 transition-all duration-300 group-hover:bg-green-600">
+                  <Icon className="h-8 w-8 text-green-400 group-hover:text-white" />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-white sm:text-2xl">
+                  {service.title}
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-gray-400 sm:text-base">
+                  {service.description}
+                </p>
               </div>
+            );
+          })}
+        </div>
 
-              <div className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
-                <span className="text-gray-300">
-                  Build emotional trust through patient success stories
-                </span>
-              </div>
+        {/* CTA */}
 
-              <div className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
-                <span className="text-gray-300">
-                  Generate high-quality leads directly from social platforms
-                </span>
-              </div>
+        <div className="mt-16 rounded-3xl border border-green-500/20 bg-gradient-to-r from-green-600/20 to-green-600/20 p-8 text-center backdrop-blur-xl sm:p-10 lg:p-14">
+          <h3 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
+            Ready to Accelerate Your Financial Platform?
+          </h3>
 
-            </div>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-300 sm:text-lg">
+            From performance marketing and automation to websites, apps, CRM,
+            and analytics, we provide everything needed to scale your financial
+            business under one trusted partner.
+          </p>
 
-            {/* Bottom Text */}
-            <p className="mt-8 text-lg font-semibold text-white">
-              Convert social media engagement into real clinic appointments.
-            </p>
-  {/* CTA Button */}
-        <div className="mt-12 flex justify-center">
-          <button
+           <button
             onClick={() => setIsPopupOpen(true)}
-            className="rounded-full bg-green-600 px-8 py-4 text-lg font-bold text-black transition-all duration-300 hover:bg-green-500"
+            className="group mt-8 inline-flex items-center justify-center rounded-xl bg-green-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-green-500"
           >
-                 Start Now →
+                 Book a Strategy Call
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>
         </div>
-          
-
-          </div>
-
-          {/* Right Side */}
-          <div className="order-1 flex h-full items-center lg:order-2">
-            <div className="w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl">
-              <Image
-                src="/ivfi.png"
-                alt="Meta Ads for IVF Clinics"
-                width={700}
-                height={700}
-                priority
-                className="h-[350px] w-full object-cover sm:h-[450px] lg:h-[650px]"
-              />
-            </div>
-          </div>
-
-        </div>
-
       </div>
     </section>
   );

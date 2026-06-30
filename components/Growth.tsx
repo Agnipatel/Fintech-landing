@@ -1,108 +1,224 @@
 "use client";
 
-import Image from "next/image";
-import { CheckCircle } from "lucide-react";
-import { usePopup } from "@/components/PopupProvider";
-export default function GooglePPCSection() {
+import {
+  ArrowRight,
+  CheckCircle2,
+  Users,
+  Target,
+  TrendingUp,
+  BarChart3,
+} from "lucide-react";
+import { usePopup } from '@/components/PopupProvider';
+
+const features = [
+  "Reach professionals, investors, founders, and high-intent consumers",
+  "Scale winning creatives backed by performance data",
+  "Recover lost opportunities with advanced retargeting strategies",
+  "Continuously optimize campaigns to lower customer acquisition costs",
+];
+
+export default function PaidSocialSection() {
   const { setIsPopupOpen } = usePopup();
-
   return (
-    <section className="bg-black py-12 sm:py-16 lg:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8 xl:px-12">
+    <section className="relative overflow-hidden bg-black py-16 sm:py-20 lg:py-24">
+      {/* Background Blur */}
+      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-green-500/10 blur-[130px]" />
+      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
 
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-8">
+        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          {/* LEFT */}
 
-          {/* Left Side */}
-          <div className="flex h-full items-center">
-            <div className="w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl">
-              <Image
-                src="/ivfp.png"
-                alt="Google PPC For IVF Clinics"
-                width={700}
-                height={700}
-                priority
-                className="h-[350px] w-full object-cover sm:h-[450px] lg:h-[650px]"
-              />
-            </div>
-          </div>
-
-          {/* Right Side */}
-          <div className="flex h-full flex-col justify-center">
-
+          <div>
             {/* Badge */}
-            <span className="inline-flex w-fit rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-green-400 sm:text-sm">
-              ● High-Conversion PPC Campaigns
+
+            <span className="inline-flex items-center rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs font-semibold text-green-400 sm:px-5 sm:text-sm">
+              <span className="mr-2 h-2 w-2 rounded-full bg-green-400"></span>
+              Paid Social for Financial Growth
             </span>
 
             {/* Heading */}
-            <h2 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Fill Your Consultation Calendar via{" "}
-              <span className="text-green-500">
-                Google PPC
+
+            <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl">
+              Reach
+              <span className="bg-gradient-to-r from-cyan-400 to-green-500 bg-clip-text text-transparent">
+                {" "}
+                High-Intent Customers
               </span>
+              <br />
+              Across Social Media
             </h2>
 
             {/* Description */}
-            <p className="mt-6 text-base leading-7 text-gray-300 sm:text-lg sm:leading-8">
-              Don t let valuable search traffic go to competitors. We build
-              and scale high-performing pay-per-click funnels tailored to
-              reproductive health. By targeting precise search phrases like
-              <span className="font-semibold text-white">
-                {" "}best IVF specialist near me
-              </span>,
-              we position your clinic at the top of search results exactly
-              when potential patients need your services.
+
+            <p className="mt-8 text-base leading-8 text-gray-400 sm:text-lg">
+              We engineer high-performance social advertising for modern
+              financial technology companies.
+              <br />
+              <br />
+              Our creative frameworks simplify complex financial products,
+              driving scalable app installs, qualified leads, and website
+              conversions with minimal friction.
             </p>
 
-            {/* Features */}
-            <div className="mt-8 space-y-5">
+            {/* Checklist */}
 
-              <div className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
-                <span className="text-gray-300">
-                  Dominate top sponsored search results for competitive IVF keywords
-                </span>
-              </div>
+            <div className="mt-10 space-y-5">
+              {features.map((item, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <CheckCircle2 className="mt-1 h-6 w-6 text-green-400" />
 
-              <div className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
-                <span className="text-gray-300">
-                  Eliminate wasted ad spend on low-converting search terms
-                </span>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
-                <span className="text-gray-300">
-                  Route qualified traffic to custom high-converting landing pages
-                </span>
-              </div>
-
+                  <p className="text-base leading-7 text-gray-300 sm:text-lg">
+                    {item}
+                  </p>
+                </div>
+              ))}
             </div>
 
-            {/* Bottom Text */}
-            <p className="mt-8 text-lg font-semibold text-white">
-              Capture ready-to-book fertility inquiries in your region.
-            </p>
-      
+            {/* CTA */}
 
+            <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:items-center">
+              <p className="text-lg font-semibold text-white">
+                Acquire customers ready to engage with your platform.
+              </p>
 
+              
 
-       {/* CTA Button */}
-        <div className="mt-12 flex justify-center">
-          <button
+                  <button
             onClick={() => setIsPopupOpen(true)}
-            className="rounded-full bg-green-600 px-8 py-4 text-lg font-bold text-black transition-all duration-300 hover:bg-green-500"
+            className="group inline-flex items-center justify-center rounded-xl bg-green-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-green-500"
           >
-            Launch Paid Campaigns →
+                Launch Now
+                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>
-        </div>
-           
-
+            </div>
           </div>
 
-        </div>
+          {/* RIGHT */}
 
+          <div className="relative">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl sm:p-8 lg:p-10">
+              {/* Header */}
+
+              <div className="mb-8 flex items-center gap-4">
+                <div className="rounded-2xl bg-[#0A66C2] p-4 text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="h-8 w-8"
+                  >
+                    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM3.56 20.45H7.1V9H3.56v11.45z" />
+                  </svg>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-white">
+                    Paid Social Dashboard
+                  </h3>
+
+                  <p className="text-gray-400">
+                    Meta • LinkedIn • Instagram
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-5">
+                {/* Card */}
+
+                <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-white">
+                      Audience Reach
+                    </span>
+
+                    <Users className="h-6 w-6 text-green-400" />
+                  </div>
+
+                  <div className="mt-4 h-3 rounded-full bg-gray-800">
+                    <div className="h-3 w-[92%] rounded-full bg-green-500"></div>
+                  </div>
+
+                  <p className="mt-3 text-sm text-gray-400">
+                    Professionals • Investors • Founders
+                  </p>
+                </div>
+
+                {/* Card */}
+
+                <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-white">
+                      Creative Performance
+                    </span>
+
+                    <TrendingUp className="h-6 w-6 text-green-400" />
+                  </div>
+
+                  <div className="mt-4 h-3 rounded-full bg-gray-800">
+                    <div className="h-3 w-[84%] rounded-full bg-green-500"></div>
+                  </div>
+
+                  <p className="mt-3 text-sm text-gray-400">
+                    Winning Ads Scaled Automatically
+                  </p>
+                </div>
+
+                {/* Card */}
+
+                <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-white">
+                      Retargeting Success
+                    </span>
+
+                    <Target className="h-6 w-6 text-green-400" />
+                  </div>
+
+                  <div className="mt-4 h-3 rounded-full bg-gray-800">
+                    <div className="h-3 w-[88%] rounded-full bg-green-500"></div>
+                  </div>
+
+                  <p className="mt-3 text-sm text-gray-400">
+                    Recover Lost Visitors
+                  </p>
+                </div>
+
+                {/* Card */}
+
+                <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-white">
+                      Customer Acquisition Cost
+                    </span>
+
+                    <BarChart3 className="h-6 w-6 text-orange-400" />
+                  </div>
+
+                  <div className="mt-4 h-3 rounded-full bg-gray-800">
+                    <div className="h-3 w-[76%] rounded-full bg-green-500"></div>
+                  </div>
+
+                  <p className="mt-3 text-sm text-gray-400">
+                    Lower CAC Through Continuous Optimization
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Cards */}
+
+            <div className="absolute -top-6 -right-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
+              <p className="text-sm text-gray-300">Average Engagement</p>
+              <h4 className="mt-2 text-3xl font-bold text-green-400">12.8%</h4>
+            </div>
+
+            <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
+              <p className="text-sm text-gray-300">Qualified Leads</p>
+              <h4 className="mt-2 text-3xl font-bold text-green-400">+248%</h4>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

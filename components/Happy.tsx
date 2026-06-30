@@ -1,123 +1,209 @@
 "use client";
 
-import Image from "next/image";
-import { CheckCircle } from "lucide-react";
-import { usePopup } from "@/components/PopupProvider";
-export default function IVFVisibilitySection() {
-  const { setIsPopupOpen } = usePopup();
+import {
+  ArrowRight,
+  CheckCircle2,
+  Search,
+  MousePointerClick,
+  TrendingUp,
+  BarChart3,
+} from "lucide-react";
+import { usePopup } from '@/components/PopupProvider';
+
+
+const features = [
+  "Reach users with strong purchase intent",
+  "Eliminate low-value clicks and irrelevant traffic",
+  "Scale campaigns using real performance data",
+];
+
+export default function PaidGrowthEngine() {
+   const { setIsPopupOpen } = usePopup();
   return (
-    <section className="bg-black py-12 sm:py-16 lg:py-24">
-      {/* 1440px Container */}
-      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8 xl:px-12">
+    <section className="relative overflow-hidden bg-black py-16 sm:py-20 lg:py-24">
+      {/* Background Blur */}
+      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-green-500 blur-[130px]" />
+      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-green-500 blur-[140px]" />
 
-        {/* Top Badge */}
-        <div className="flex justify-center">
-          <span className="rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-center text-xs font-semibold uppercase tracking-wider text-green-400 sm:text-sm">
-            Local SEO & Visibility Growth
-          </span>
-        </div>
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-8">
+        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          {/* Left Content */}
 
-        {/* Heading */}
-        <h2 className="mt-5 text-center text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-          IVF Clinic & Fertility Centers Digital{" "}
-          <span className="text-green-500">
-            Marketing Services
-          </span>
-        </h2>
+          <div>
+            {/* Badge */}
 
-        {/* Equal 50/50 Layout */}
-        <div className="mt-12 grid items-center gap-12 lg:mt-16 lg:grid-cols-2">
-
-          {/* Left Side */}
-          <div className="flex h-full flex-col justify-center">
-
-            <span className="w-fit rounded-full bg-green-500/10 px-4 py-2 text-xs font-semibold text-green-400">
-              LOCAL SEO
+            <span className="inline-flex items-center rounded-full border border-green-500/30 bg-red-500/10 px-4 py-2 text-xs font-semibold text-green-400 sm:px-5 sm:text-sm">
+              <span className="mr-2 h-2 w-2 rounded-full bg-green-400"></span>
+              Performance Marketing Experts for Financial Companies
             </span>
 
-            <h3 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Become the Most Trusted Fertility
-              <span className="block text-green-500">
-                Center in Bangalore
+            {/* Heading */}
+
+            <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl">
+              Capture
+              <span className="bg-gradient-to-r from-green-400 to-green-400 bg-clip-text text-transparent">
+                {" "}
+                High-Intent Users
               </span>
-            </h3>
+              <br />
+              Before Competitors Do
+            </h2>
 
-            <p className="mt-5 text-base leading-7 text-gray-300 sm:text-lg sm:leading-8">
-              Most couples looking for reproductive care start with a local
-              Google search. Our fertility clinic marketing services optimize
-              your digital presence for localized intent, matching your
-              clinical specializations like IUI, IVF, and ICSI with local
-              patients who are ready to book an appointment.
+            {/* Description */}
+
+            <p className="mt-8 text-base leading-8 text-gray-400 sm:text-lg">
+              Every day, potential customers search for lending platforms,
+              investment apps, digital banking, insurance, and NBFC solutions.
+              <br />
+              <br />
+              Our Google Ads campaigns place your financial brand in front of
+              these high-value prospects at the exact moment they re ready to
+              sign up.
+              <br />
+              <br />
+              With precision targeting, smart bidding, and continuous
+              optimization, we transform search intent into verified users—not
+              wasted clicks.
             </p>
 
-            <p className="mt-4 text-base leading-7 text-gray-300 sm:text-lg sm:leading-8">
-              We turn search engine visibility into real patient inquiries,
-              consultations, and clinic visits through strategic local SEO.
-            </p>
+            {/* Checklist */}
 
-            {/* Benefits */}
-            <div className="mt-8 space-y-4">
-
-              <div className="flex items-center gap-3">
-                <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-500" />
-                <span className="text-gray-300">
-                  Improve fertility clinic visibility
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-500" />
-                <span className="text-gray-300">
-                  Generate qualified patient leads
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-500" />
-                <span className="text-gray-300">
-                  Increase local appointment bookings
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-500" />
-                <span className="text-gray-300">
-                  Build trust and online authority
-                </span>
-              </div>
-
+            <div className="mt-10 space-y-5">
+              {features.map((item, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <CheckCircle2 className="mt-1 h-6 w-6 text-green-400" />
+                  <p className="text-base leading-7 text-gray-300 sm:text-lg">
+                    {item}
+                  </p>
+                </div>
+              ))}
             </div>
 
+            {/* CTA */}
 
+            <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:items-center">
+              <p className="text-lg font-semibold text-white">
+                Own the searches that drive revenue.
+              </p>
 
-     {/* CTA Button */}
-        <div className="mt-12 flex justify-center">
-          <button
+               <button
             onClick={() => setIsPopupOpen(true)}
-            className="rounded-full bg-green-600 px-8 py-4 text-lg font-bold text-black transition-all duration-300 hover:bg-green-500"
+            className="group inline-flex items-center justify-center rounded-xl bg-green-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-green-600"
           >
-              Start Now →
+                Launch Paid Campaigns
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>
-        </div>
-           
-          </div>
-
-          {/* Right Side */}
-          <div className="flex h-full items-center">
-            <div className="w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl">
-              <Image
-                src="/ivf6.png"
-                alt="IVF Local SEO"
-                width={700}
-                height={700}
-                priority
-                className="h-[350px] w-full object-cover sm:h-[450px] lg:h-[650px]"
-              />
             </div>
           </div>
 
-        </div>
+          {/* Right Dashboard */}
 
+          <div className="relative">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl sm:p-8 lg:p-10">
+              {/* Header */}
+
+              <div className="mb-8 flex items-center gap-4">
+                <div className="rounded-xl bg-green-500/10 p-4">
+                  <Search className="h-8 w-8 text-green-400" />
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-white">
+                    Google Ads Dashboard
+                  </h3>
+
+                  <p className="text-gray-400">
+                    Live Campaign Performance
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                {/* Qualified Clicks */}
+
+                <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-white">
+                      Qualified Clicks
+                    </span>
+
+                    <MousePointerClick className="h-6 w-6 text-green-400" />
+                  </div>
+
+                  <div className="mt-4 h-3 rounded-full bg-gray-800">
+                    <div className="h-3 w-[90%] rounded-full bg-green-500"></div>
+                  </div>
+
+                  <p className="mt-3 text-sm text-gray-400">
+                    +90% High Intent Traffic
+                  </p>
+                </div>
+
+                {/* Conversion */}
+
+                <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-white">
+                      Conversion Rate
+                    </span>
+
+                    <TrendingUp className="h-6 w-6 text-green-400" />
+                  </div>
+
+                  <div className="mt-4 h-3 rounded-full bg-gray-800">
+                    <div className="h-3 w-[82%] rounded-full bg-green-500"></div>
+                  </div>
+
+                  <p className="mt-3 text-sm text-gray-400">
+                    Optimized Landing Pages
+                  </p>
+                </div>
+
+                {/* ROI */}
+
+                <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-white">
+                      Campaign ROI
+                    </span>
+
+                    <BarChart3 className="h-6 w-6 text-purple-400" />
+                  </div>
+
+                  <div className="mt-4 h-3 rounded-full bg-gray-800">
+                    <div className="h-3 w-[95%] rounded-full bg-green-500"></div>
+                  </div>
+
+                  <p className="mt-3 text-sm text-gray-400">
+                    Performance-Based Scaling
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Stats */}
+
+            <div className="absolute -right-6 -top-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
+              <p className="text-sm text-gray-300">
+                Average CTR
+              </p>
+
+              <h4 className="mt-2 text-3xl font-bold text-green-400">
+                18.6%
+              </h4>
+            </div>
+
+            <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
+              <p className="text-sm text-gray-300">
+                Average ROAS
+              </p>
+
+              <h4 className="mt-2 text-3xl font-bold text-green-400">
+                8.2X
+              </h4>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

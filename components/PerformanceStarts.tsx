@@ -48,8 +48,8 @@ export default function WhyPerformanceMarketing() {
         {/* Tag */}
 
         <div className="flex justify-center">
-          <span className="inline-flex items-center rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs font-semibold text-green-400 sm:px-5 sm:text-sm">
-            <span className="mr-2 h-2 w-2 rounded-full bg-green-400"></span>
+          <span className="inline-flex items-center rounded-full border border-green-600 bg-green-600 1px-4 py-2 text-xs font-semibold text-green-600 sm:px-5 sm:text-sm">
+            <span className="mr-2 h-2 w-2 rounded-full bg-green-600"></span>
             Scale Your Financial Platform Active User Base
           </span>
         </div>
@@ -101,7 +101,8 @@ export default function WhyPerformanceMarketing() {
                  
           <button
             onClick={() => setIsPopupOpen(true)}
-            className="mt-8 flex items-center gap-2 font-semibold text-green-600 transition-all duration-300 group-hover:gap-4"
+            className="mt-9 flex items-center gap-4 rounded-full font-semibold bg-green-600 text-black transition-all duration-400 group-hover:gap-6  px-6
+    py-3"
           >
                  Learn More
                   <ArrowRight size={18} />

@@ -10,9 +10,8 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatApp";
 import Marking from "@/components/Marking";
-import IVFProcessAndTestimonials from "@/components/IVFProcessAndTestimonials";
-import IVFFAQSection from "@/components/IVFFAQSection";
-import FAQSection from "@/components/FAQSection";
+
+import FaqSection from "@/components/FaqSection";
 
 export default function Home() {
   return (
@@ -56,16 +55,11 @@ export default function Home() {
         <FAQ />
       </section>
 
-      {/* IVF Process */}
-      <section id="ivf-process" className="scroll-mt-20">
-        <IVFProcessAndTestimonials />
+      {/* Fintech Process + FAQ Section (dual anchors) */}
+      <span id="ivf-process" className="block scroll-mt-20" />
+      <section id="faqSection" className="scroll-mt-20">
+        <FaqSection />
       </section>
-
-      {/* IVF FAQ */}
-      {/* <section id="IVFFAQSection" className="scroll-mt-20">
-        <IVFFAQSection />
-      </section> */}
-       <FAQSection />
 
       {/* Contact */}
       <section id="contact" className="scroll-mt-20">

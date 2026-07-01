@@ -22,8 +22,8 @@ export default function PaidSocialSection() {
   return (
     <section className="relative overflow-hidden bg-black py-16 sm:py-20 lg:py-24">
       {/* Background Blur */}
-      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-green-500/10 blur-[130px]" />
-      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
+      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-green-600 blur-[130px]" />
+      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-green-600 blur-[140px]" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
@@ -32,8 +32,8 @@ export default function PaidSocialSection() {
           <div>
             {/* Badge */}
 
-            <span className="inline-flex items-center rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs font-semibold text-green-400 sm:px-5 sm:text-sm">
-              <span className="mr-2 h-2 w-2 rounded-full bg-green-400"></span>
+            <span className="inline-flex items-center rounded-full border border-green-600 bg-cray-600 px-4 py-2 text-xs font-semibold text-green-600 sm:px-5 sm:text-sm">
+              <span className="mr-2 h-2 w-2 rounded-full bg-green-600"></span>
               Paid Social for Financial Growth
             </span>
 
@@ -41,7 +41,7 @@ export default function PaidSocialSection() {
 
             <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl">
               Reach
-              <span className="bg-gradient-to-r from-cyan-400 to-green-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-600 to-green-600 bg-clip-text text-transparent">
                 {" "}
                 High-Intent Customers
               </span>
@@ -66,7 +66,7 @@ export default function PaidSocialSection() {
             <div className="mt-10 space-y-5">
               {features.map((item, index) => (
                 <div key={index} className="flex items-start gap-4">
-                  <CheckCircle2 className="mt-1 h-6 w-6 text-green-400" />
+                  <CheckCircle2 className="mt-1 h-6 w-6 text-green-600" />
 
                   <p className="text-base leading-7 text-gray-300 sm:text-lg">
                     {item}
@@ -86,7 +86,7 @@ export default function PaidSocialSection() {
 
                   <button
             onClick={() => setIsPopupOpen(true)}
-            className="group inline-flex items-center justify-center rounded-xl bg-green-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-green-500"
+            className="group inline-flex items-center justify-center rounded-full bg-green-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-green-500"
           >
                 Launch Now
                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -101,7 +101,7 @@ export default function PaidSocialSection() {
               {/* Header */}
 
               <div className="mb-8 flex items-center gap-4">
-                <div className="rounded-2xl bg-[#0A66C2] p-4 text-white">
+                <div className="rounded-2xl bg-green-600 p-4 text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -192,11 +192,11 @@ export default function PaidSocialSection() {
                       Customer Acquisition Cost
                     </span>
 
-                    <BarChart3 className="h-6 w-6 text-orange-400" />
+                    <BarChart3 className="h-6 w-6 text-green-600" />
                   </div>
 
                   <div className="mt-4 h-3 rounded-full bg-gray-800">
-                    <div className="h-3 w-[76%] rounded-full bg-green-500"></div>
+                    <div className="h-3 w-[76%] rounded-full bg-green-600"></div>
                   </div>
 
                   <p className="mt-3 text-sm text-gray-400">

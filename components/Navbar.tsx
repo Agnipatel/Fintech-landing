@@ -35,7 +35,7 @@ export default function Navbar() {
             href="#growth"
             className="transition hover:text-[#22c55e]"
           >
-           Fintech Growth
+            Fintech Growth
           </Link>
 
           <Link
@@ -45,15 +45,10 @@ export default function Navbar() {
             Services
           </Link>
 
-          <Link
-            href="#ivf-process"
-            className="transition hover:text-[#22c55e]"
-          >
-          Fintech Process
-          </Link>
+
 
           <Link
-            href="#FinancialFAQ"
+            href="#faqSection"
             className="transition hover:text-[#22c55e]"
           >
             FAQ
@@ -85,14 +80,13 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`overflow-hidden transition-all duration-300 md:hidden ${
-          mobileMenu ? "max-h-[600px]" : "max-h-0"
-        }`}
+        className={`overflow-hidden transition-all duration-300 md:hidden ${mobileMenu ? "max-h-[600px]" : "max-h-0"
+          }`}
       >
         <div className="border-t bg-white dark:bg-zinc-950">
           <div className="flex flex-col space-y-5 p-6">
             <Link href="#marketing" onClick={closeMenu}>
-            Fintech Marketing
+              Fintech Marketing
             </Link>
 
             <Link href="#growth" onClick={closeMenu}>
@@ -103,11 +97,9 @@ export default function Navbar() {
               Services
             </Link>
 
-            <Link href="#ivf-process" onClick={closeMenu}>
-              Fintech Process
-            </Link>
 
-            <Link href="#FAQSection" onClick={closeMenu}>
+
+            <Link href="#faqSection" onClick={closeMenu}>
               FAQ
             </Link>
 

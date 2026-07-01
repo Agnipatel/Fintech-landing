@@ -168,7 +168,7 @@ export default function ContactModal() {
                         key={item}
                         className="flex items-center gap-2"
                       >
-                        <CheckCircle className="h-4 w-4 text-violet-600" />
+                        <CheckCircle className="h-4 w-4 text-green-600" />
 
                         <span className="text-sm text-slate-700">
                           {item}
@@ -179,7 +179,7 @@ export default function ContactModal() {
 
                   {/* Error */}
                   {errorMsg && (
-                    <div className="mb-5 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-green-600">
+                    <div className="mb-5 rounded-xl border border-green-400 bg-green-50 p-3 text-sm text-green-600">
                       {errorMsg}
                     </div>
                   )}

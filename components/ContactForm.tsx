@@ -58,14 +58,14 @@ export default function IVFAuditSection() {
     }
   };
 
-  const benefits = [
-    "Local SEO Health Check",
-    "Lead Generation Analysis",
-    "Landing Page Conversion Review",
-    "Competitor Visibility Insights",
-    "Advertising Performance Audit",
-    "90-Day Growth Roadmap",
-  ];
+  // const benefits = [
+  //   "Local SEO Health Check",
+  //   "Lead Generation Analysis",
+  //   "Landing Page Conversion Review",
+  //   "Competitor Visibility Insights",
+  //   "Advertising Performance Audit",
+  //   "90-Day Growth Roadmap",
+  // ];
 
   return (
     <section className="relative overflow-hidden bg-black py-12 sm:py-16 lg:py-24">
@@ -78,7 +78,7 @@ export default function IVFAuditSection() {
         {/* Heading */}
         <div className="mx-auto max-w-5xl text-center">
           <span className="inline-flex rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-green-400 sm:text-sm">
-            ● Free IVF Marketing Audit
+            ● Free Fintech Marketing Audit
           </span>
 
           <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
@@ -102,7 +102,7 @@ export default function IVFAuditSection() {
               What You ll Receive
             </h3>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            {/* <div className="grid gap-4 sm:grid-cols-2">
               {benefits.map((item, index) => (
                 <div
                   key={index}
@@ -117,7 +117,7 @@ export default function IVFAuditSection() {
                   </span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Form */}

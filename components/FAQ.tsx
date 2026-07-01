@@ -133,7 +133,7 @@ export default function ScalingMethodology() {
 
                        <button
             onClick={() => setIsPopupOpen(true)}
-            className="mt-8 inline-flex items-center gap-2 text-green-400 transition hover:text-cyan-300"
+            className="mt-8 inline-flex items-center  px-6 py-3 rounded-full bg-green-600 gap-2 text-black transition hover:text-green-300"
           >
               Learn More
                   <ArrowRight className="h-5 w-5" />
@@ -164,7 +164,7 @@ export default function ScalingMethodology() {
             </div>
                        <button
             onClick={() => setIsPopupOpen(true)}
-            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-cyan-500 to-green-600 px-8 py-4 text-lg font-semibold text-white transition duration-300 hover:scale-105"
+            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-green-600 to-green-600 px-8 py-4 text-lg font-semibold text-white transition duration-300 hover:scale-105"
           >
              Start Your Growth Journey
                  <ArrowRight className="h-5 w-5" />

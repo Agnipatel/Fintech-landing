@@ -42,7 +42,7 @@ const faqs = [
   },
 ];
 
-export default function FinancialFAQ() {
+export default function FaqSection() {
     const { setIsPopupOpen } = usePopup();
   const [active, setActive] = useState(0);
 

@@ -93,7 +93,7 @@ export default function FinancialGrowthModels() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Pill */}
         <div className="flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-cyan-500/10 px-6 py-2 text-sm font-semibold text-green-300 backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-cyan-500/10 px-6 py-2 text-sm font-semibold text-green-600 backdrop-blur">
             <span className="h-2 w-2 rounded-full bg-green-400"></span>
             Financial Company Growth Specialists
           </span>
@@ -103,7 +103,7 @@ export default function FinancialGrowthModels() {
         <div className="mx-auto mt-8 max-w-4xl text-center">
           <h2 className="text-4xl font-bold leading-tight text-white md:text-5xl">
             Digital Marketing for Every{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-green-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-600 to-green-600 bg-clip-text text-transparent">
               Financial Company Model
             </span>
           </h2>
@@ -124,9 +124,9 @@ export default function FinancialGrowthModels() {
             return (
               <div
                 key={index}
-                className="group rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-green-400/50 hover:bg-cyan-500/5"
+                className="group rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-green-500 hover:bg-cyan-500/5"
               >
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-green-600 shadow-lg">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-green-600 to-green-600 shadow-lg">
                   <Icon className="h-8 w-8 text-white" />
                 </div>
 
@@ -134,7 +134,7 @@ export default function FinancialGrowthModels() {
                   {category.title}
                 </h3>
 
-                <p className="mt-4 text-green-300 font-medium">
+                <p className="mt-4 text-green-600 font-medium">
                   {category.description}
                 </p>
 

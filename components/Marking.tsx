@@ -31,8 +31,8 @@ export default function OrganicVisibility() {
           <div>
             {/* Badge */}
 
-            <span className="inline-flex items-center rounded-full border border-green-500 bg-emerald-500/10 px-4 py-2 text-xs font-semibold text-green-400 sm:px-5 sm:text-sm">
-              <span className="mr-2 h-2 w-2 rounded-full bg-green-400"></span>
+            <span className="inline-flex items-center rounded-full border border-green-600 bg-cray-600 px-4 py-2 text-xs font-semibold text-green-600 sm:px-5 sm:text-sm">
+              <span className="mr-2 h-2 w-2 rounded-full bg-green-600"></span>
               SEO & AI Visibility for Financial Platforms
             </span>
 
@@ -40,7 +40,7 @@ export default function OrganicVisibility() {
 
             <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl">
               Specialized
-              <span className="bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-600 to-green-600 bg-clip-text text-transparent">
                 {" "}
                 SEO (GEO & AEO)
               </span>
@@ -68,7 +68,7 @@ export default function OrganicVisibility() {
             <div className="mt-10 space-y-5">
               {features.map((item, index) => (
                 <div key={index} className="flex items-start gap-4">
-                  <CheckCircle2 className="mt-1 h-6 w-6 text-emerald-400" />
+                  <CheckCircle2 className="mt-1 h-6 w-6 text-green-600" />
 
                   <p className="text-base leading-7 text-gray-300 sm:text-lg">
                     {item}
@@ -87,7 +87,7 @@ export default function OrganicVisibility() {
           
                 <button
             onClick={() => setIsPopupOpen(true)}
-            className="group inline-flex items-center justify-center rounded-xl bg-emerald-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-emerald-500"
+            className="group inline-flex items-center justify-center rounded-xl bg-green-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-green-600"
           >
                 Start Now
                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -102,9 +102,9 @@ export default function OrganicVisibility() {
               <div className="space-y-6">
                 {/* Card */}
 
-                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:border-emerald-500">
-                  <div className="rounded-xl bg-green-500 p-4">
-                    <Search className="h-8 w-8 text-emerald-400" />
+                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:border-green-600">
+                  <div className="rounded-xl bg-white p-4">
+                    <Search className="h-8 w-8 text-green-600" />
                   </div>
 
                   <div>
@@ -120,9 +120,9 @@ export default function OrganicVisibility() {
 
                 {/* Card */}
 
-                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:border-green-500">
-                  <div className="rounded-xl bg-green-500 p-4">
-                    <Sparkles className="h-8 w-8 text-green-400" />
+                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:border-green-600">
+                  <div className="rounded-xl bg-white p-4">
+                    <Sparkles className="h-8 w-8 text-green-600" />
                   </div>
 
                   <div>
@@ -138,9 +138,9 @@ export default function OrganicVisibility() {
 
                 {/* Card */}
 
-                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:border-green-500">
-                  <div className="rounded-xl bg-green-500 p-4">
-                    <Globe className="h-8 w-8 text-green-400" />
+                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:border-green-600">
+                  <div className="rounded-xl bg-white p-4">
+                    <Globe className="h-8 w-8 text-green-600" />
                   </div>
 
                   <div>
@@ -163,7 +163,7 @@ export default function OrganicVisibility() {
                 Average Organic Growth
               </p>
 
-              <h4 className="mt-2 text-3xl font-bold text-green-400">
+              <h4 className="mt-2 text-3xl font-bold text-green-600">
                 +312%
               </h4>
             </div>
@@ -175,7 +175,7 @@ export default function OrganicVisibility() {
                 AI Visibility Score
               </p>
 
-              <h4 className="mt-2 text-3xl font-bold text-green-400">
+              <h4 className="mt-2 text-3xl font-bold text-green-600">
                 98%
               </h4>
             </div>

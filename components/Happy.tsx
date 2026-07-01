@@ -8,6 +8,7 @@ import {
   TrendingUp,
   BarChart3,
 } from "lucide-react";
+import { FcGoogle } from "react-icons/fc";
 import { usePopup } from '@/components/PopupProvider';
 
 
@@ -104,7 +105,7 @@ export default function PaidGrowthEngine() {
 
               <div className="mb-8 flex items-center gap-4">
                 <div className="rounded-xl bg-green-500/10 p-4">
-                  <Search className="h-8 w-8 text-green-400" />
+                  <FcGoogle className="h-8 w-8 text-green-400" />
                 </div>
 
                 <div>
@@ -167,7 +168,7 @@ export default function PaidGrowthEngine() {
                       Campaign ROI
                     </span>
 
-                    <BarChart3 className="h-6 w-6 text-purple-400" />
+                    <BarChart3 className="h-6 w-6 text-green-600" />
                   </div>
 
                   <div className="mt-4 h-3 rounded-full bg-gray-800">
@@ -188,7 +189,7 @@ export default function PaidGrowthEngine() {
                 Average CTR
               </p>
 
-              <h4 className="mt-2 text-3xl font-bold text-green-400">
+              <h4 className="mt-2 text-3xl font-bold text-green-600">
                 18.6%
               </h4>
             </div>
@@ -198,7 +199,7 @@ export default function PaidGrowthEngine() {
                 Average ROAS
               </p>
 
-              <h4 className="mt-2 text-3xl font-bold text-green-400">
+              <h4 className="mt-2 text-3xl font-bold text-green-600">
                 8.2X
               </h4>
             </div>

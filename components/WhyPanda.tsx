@@ -17,7 +17,7 @@ return ( <section className="relative overflow-hidden bg-gradient-to-br from-blu
         transition={{ duration: 0.5 }}
         className="mb-6 inline-flex items-center rounded-full border border-pink-200 bg-white px-5 py-2 text-sm font-medium text-pink-700 shadow-sm"
       >
-        ✦ Specialized IVF Clinic Digital Marketing Specialists
+        ✦ Specialized IVF fintech Digital Marketing Specialists
       </motion.div>
 
       {/* Heading */}
@@ -27,7 +27,7 @@ return ( <section className="relative overflow-hidden bg-gradient-to-br from-blu
         transition={{ delay: 0.2, duration: 0.6 }}
         className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl lg:text-6xl"
       >
-        IVF Clinic & Fertility Center Digital Marketing Agency in
+        IVF fintech & Fertility Center Digital Marketing Agency in
         <span className="text-blue-600"> Bangalore</span>
       </motion.h1>
 
@@ -45,7 +45,7 @@ return ( <section className="relative overflow-hidden bg-gradient-to-br from-blu
         solutions.
         <br />
         <br />
-        By combining localized Bangalore fertility clinic SEO with
+        By combining localized Bangalore fertility fintech SEO with
         high-converting Google Ads and PPC campaigns, we deliver a steady
         stream of pre-qualified patient inquiries directly to your patient
         coordinators.

@@ -132,7 +132,8 @@ export default function CompleteServices() {
             onClick={() => setIsPopupOpen(true)}
             className="group mt-8 inline-flex items-center justify-center rounded-xl bg-green-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-green-500"
           >
-                 Book a Strategy Call
+                 Explore the Complete Solution 
+
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>
         </div>

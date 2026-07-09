@@ -82,9 +82,10 @@ export default function IVFAuditSection() {
           </span>
 
           <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
-           Find Out Why Users Choose Other 
+           Find Out Why Users Choose competitor 
+
             <span className="block text-green-500">
-              Financial Platforms
+              Financial Companies over your’s 
             </span>
           </h2>
 
@@ -151,7 +152,7 @@ export default function IVFAuditSection() {
               onChange={handleChange}
               type="email"
               required
-              placeholder="yourname@fintech.com"
+              placeholder="email"
               className="h-14 w-full rounded-xl border border-white/10 bg-black/40 px-5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-green-500"
             />
 
@@ -160,7 +161,7 @@ export default function IVFAuditSection() {
               value={formData.location}
               onChange={handleChange}
               type="text"
-              placeholder="fintech Location"
+              placeholder="Location"
               className="h-14 w-full rounded-xl border border-white/10 bg-black/40 px-5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-green-500"
             />
 
@@ -169,7 +170,7 @@ export default function IVFAuditSection() {
               value={formData.website}
               onChange={handleChange}
               type="url"
-              placeholder="https://yourfintech.com"
+              placeholder="website url"
               className="h-14 w-full rounded-xl border border-white/10 bg-black/40 px-5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-green-500"
             />
 
@@ -217,7 +218,7 @@ export default function IVFAuditSection() {
             >
               {loading
                 ? "Submitting..."
-                : "Get Your fintech Audit"}
+                : " Unlock 12% OFF "}
             </button>
 
             <p className="text-center text-sm text-gray-400">

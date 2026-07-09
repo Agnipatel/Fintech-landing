@@ -53,7 +53,7 @@ export default function FinancialHero() {
               onClick={() => setIsPopupOpen(true)}
               className="rounded-full bg-green-600 px-8 py-4 text-lg font-bold text-black transition-all duration-300 hover:scale-105 hover:bg-green-500"
             >
-              Lets Scale Your Platform
+              Claim 12% OFF Before 15 July  →
             </button>
           </div>
 

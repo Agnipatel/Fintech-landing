@@ -88,7 +88,8 @@ export default function PaidSocialSection() {
             onClick={() => setIsPopupOpen(true)}
             className="group inline-flex items-center justify-center rounded-full bg-green-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-green-500"
           >
-                Launch Now
+                 Reach Better Prospects  
+
                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>
             </div>
@@ -208,7 +209,7 @@ export default function PaidSocialSection() {
 
             {/* Floating Cards */}
 
-            <div className="absolute -top-6 -right-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
+            {/* <div className="absolute -top-6 -right-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
               <p className="text-sm text-gray-300">Average Engagement</p>
               <h4 className="mt-2 text-3xl font-bold text-green-400">12.8%</h4>
             </div>
@@ -216,7 +217,7 @@ export default function PaidSocialSection() {
             <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
               <p className="text-sm text-gray-300">Qualified Leads</p>
               <h4 className="mt-2 text-3xl font-bold text-green-400">+248%</h4>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

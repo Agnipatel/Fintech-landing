@@ -173,7 +173,8 @@ export default function FinancialGrowthModels() {
             onClick={() => setIsPopupOpen(true)}
             className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-green-500 to-green-600 px-8 py-4 text-lg font-semibold text-white transition hover:scale-105"
           >
-                Talk to Growth Expert
+                Claim Your Exclusive Coupon 
+
                   <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
           </button>
           </div>

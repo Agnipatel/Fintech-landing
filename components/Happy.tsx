@@ -91,7 +91,8 @@ export default function PaidGrowthEngine() {
             onClick={() => setIsPopupOpen(true)}
             className="group inline-flex items-center justify-center rounded-xl bg-green-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-green-600"
           >
-                Launch Paid Campaigns
+                 Increase Qualified Acquisitions 
+
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>
             </div>
@@ -184,7 +185,7 @@ export default function PaidGrowthEngine() {
 
             {/* Floating Stats */}
 
-            <div className="absolute -right-6 -top-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
+            {/* <div className="absolute -right-6 -top-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
               <p className="text-sm text-gray-300">
                 Average CTR
               </p>
@@ -192,9 +193,9 @@ export default function PaidGrowthEngine() {
               <h4 className="mt-2 text-3xl font-bold text-green-600">
                 18.6%
               </h4>
-            </div>
+            </div> */}
 
-            <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
+            {/* <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-xl xl:block">
               <p className="text-sm text-gray-300">
                 Average ROAS
               </p>
@@ -202,7 +203,7 @@ export default function PaidGrowthEngine() {
               <h4 className="mt-2 text-3xl font-bold text-green-600">
                 8.2X
               </h4>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
